@@ -311,7 +311,7 @@ const RedMountainMagazineStack = () => {
             </div>
           </div>
           {/* Portrait */}
-          <div className="w-full md:w-1/2 min-h-[50vw] md:min-h-0 relative">
+          <div className="w-full md:w-1/2 min-h-[30vh] md:min-h-0 relative">
             <img
               src="/images/Tim.avif"
               alt="Tim Barber, founder of Red Mountain Photography — Telluride architectural photographer"
