@@ -1,7 +1,38 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import posts from '../blog/posts';
+
+const resourcePosts = posts.slice(0, 3);
+
+const faqs = [
+  {
+    q: "What's your turnaround time for project deliverables?",
+    a: 'Most projects are delivered within 2-3 weeks of the shoot date. Expedited delivery (7-10 days) is available for rush listings and time-sensitive projects. We discuss timeline expectations during the initial consultation.',
+  },
+  {
+    q: 'How is pricing structured?',
+    a: 'Every property and project is different, so we quote each one individually based on the scope: square footage, number of finished images, video, drone coverage, and travel. Tell us about your project through the contact form and we will send a detailed quote, usually within 24 hours.',
+  },
+  {
+    q: 'Do you travel for projects?',
+    a: 'Yes, gladly, and we would like to do more of it. Telluride is home base and we know the San Juans intimately, but we regularly travel for architectural, resort, and residential work and we are always glad to shoot somewhere new. Travel is folded into the quote and is usually a small fraction of a project budget. Tell us where the property is and we will tell you what it takes to get there.',
+  },
+  {
+    q: 'Do you offer drone photography for every project?',
+    a: 'Drone imagery adds significant value to most projects, especially for properties with acreage or dramatic settings. We assess each location for optimal drone angles and include aerial coverage in our comprehensive packages. Weather and local airspace restrictions may apply.',
+  },
+  {
+    q: 'How do you handle image licensing and usage rights?',
+    a: 'All deliverables include a perpetual, non-exclusive license for marketing and promotional use. Clients may use images for MLS listings, broker marketing, print materials, and websites. We retain the right to use images in our portfolio and for case studies (with your permission).',
+  },
+  {
+    q: "What if I'm not satisfied with the initial selects?",
+    a: 'We collaborate closely with clients throughout the shoot and post-production. If you would like to reshoot specific areas or have feedback on the selects, we schedule a revision session to ensure you are completely satisfied before final delivery.',
+  },
+];
 
 interface ProjectItem {
   id: number;
@@ -21,49 +52,49 @@ const BAR_HEIGHT = 56;
 const projects: ProjectItem[] = [
   {
     id: 1,
-    src: '/images/actual/DJI_0408.jpg',
-    title: 'Alpine Ascent',
+    src: '/images/actual/DJI_0547.jpg',
+    title: 'Galloping Goose Chalet',
     category: 'Drone Series',
     year: '2024',
-    location: 'Telluride, CO',
+    location: 'Mountain Village, CO',
     services: ['Aerial Drone Photography', 'Cinematic Video'],
-    description: 'A full aerial coverage project showcasing a luxury mountain estate nestled in the San Juan range outside Telluride. Shot across two golden-hour sessions to capture the interplay of natural light across the roof forms and surrounding landscape.',
+    description: 'A full aerial coverage project showcasing a luxury mountain estate nestled in the San Juan range above Telluride. Shot across two golden-hour sessions to capture the interplay of natural light across the home and surrounding landscape.',
     details: 'FAA-certified drone imaging provided context shots, site overview, and detail passes at multiple altitudes. The results were used across MLS listing materials, broker marketing decks, and the developer\'s portfolio.',
-    deliverables: ['60 aerial stills', '2-min cinematic drone reel', 'Social media edits'],
+    deliverables: ['10 aerial stills', '1-min cinematic reel', 'Social media edits'],
   },
   {
     id: 2,
     src: '/images/actual/544A8777.jpg',
-    title: 'Shadowed Ridges',
-    category: 'Landscape Study',
-    year: '2024',
+    title: 'Sky High at the Plaza',
+    category: 'Interior Study',
+    year: '2022',
     location: 'Mountain Village, CO',
-    services: ['Architectural Photography', 'Exterior Documentation'],
-    description: 'An architectural study exploring how a high-altitude residence responds to its ridge-line setting. This project focused on the building\'s exterior materiality — stone, glass, and steel — as it transitions across seasons and light conditions.',
-    details: 'Captured over a single full day with both wide establishing shots and tight detail frames. The resulting portfolio helped the architect win two regional design awards and anchor a national publication feature.',
-    deliverables: ['48 exterior stills', 'Detail series', 'Print-ready files'],
+    services: ['Architectural Photography', 'Interior Documentation'],
+    description: 'A warm modern kitchen study, balancing bold color with restrained material selection. Deep green cabinetry anchors the space against a clean white tile backdrop, while natural wood shelving and brass accents introduce warmth and contrast. The design blends contemporary minimalism with mid-century influences, creating a space that feels both elevated and approachable.',
+    details: 'Captured over a single full day with both wide establishing shots and tight detail frames. The resulting images were used in the designer\'s portfolio and on the client\'s website.',
+    deliverables: ['28 interior and exterior stills', 'Detail series', 'Print-ready files'],
   },
   {
     id: 3,
     src: '/images/actual/544A8388.jpg',
-    title: 'Mountain Gaze',
-    category: 'Portrait Series',
+    title: 'Mountainside Retreat',
+    category: 'Renovation Series',
     year: '2024',
     location: 'Telluride, CO',
-    services: ['Interior Photography', 'Lifestyle Imagery'],
-    description: 'Interior portrait work commissioned for a boutique hospitality brand launching their flagship mountain property. The brief called for imagery that felt lived-in and warm rather than staged — an editorial approach to real estate photography.',
+    services: ['Interior Design Photography'],
+    description: 'Interior work commissioned by the architect showcasing their renovation projects in historic Telluride. The brief called for imagery that felt lived-in and warm rather than staged.',
     details: 'Natural light was prioritized throughout. Furniture and props were styled on-site with the client\'s design team. Final images appeared in a regional hospitality guide and the brand\'s website launch.',
-    deliverables: ['80 interior stills', 'Lifestyle selects', 'Web-optimized gallery'],
+    deliverables: ['20 interior stills', 'Post production staging', 'Web-optimized gallery'],
   },
   {
     id: 4,
     src: '/images/actual/544A1449.jpg',
-    title: 'Forest Depths',
-    category: 'Dense Growth',
-    year: '2024',
-    location: 'Ridgway, CO',
+    title: 'Ironwood Estates',
+    category: 'Interior Design',
+    year: '2021',
+    location: 'Telluride, CO',
     services: ['Real Estate Photography', 'Property Marketing'],
-    description: 'A luxury residential listing shoot for a forested retreat on 40 acres outside Ridgway. The property\'s character lives in its relationship to the surrounding Ponderosa pine forest — the photography was designed to communicate that connection throughout.',
+    description: 'A luxury residential listing shoot for a boutique vacation rental company in Telluride. The property\'s character lives in its relationship to the surrounding pine forest, and the photography was designed to communicate that connection throughout.',
     details: 'Interior, exterior, and aerial coverage delivered as a complete marketing package. The listing sold above asking price within three weeks of launch, with the listing agent citing the photography as a key differentiator.',
     deliverables: ['90 photos (interior + exterior)', 'Drone stills', 'Agent promo reel'],
   },
@@ -75,7 +106,7 @@ const projects: ProjectItem[] = [
     year: '2024',
     location: 'Telluride, CO',
     services: ['Twilight Photography', 'Architectural Photography'],
-    description: 'Twilight and dusk photography for a contemporary mountain home in Telluride\'s historic district. The blue-hour window — roughly 20 minutes after sunset — produced the warm exterior glow and dramatic sky contrast the client needed for their feature submission.',
+    description: 'Twilight and dusk photography for a contemporary mountain home in Telluride\'s historic district. The blue-hour window, roughly 20 minutes after sunset, produced the warm exterior glow and dramatic sky contrast the client needed for their feature submission.',
     details: 'Coordinated with the interior design and staging teams to ensure all lighting was tuned for the shoot window. Multiple bracketed exposures were composited for maximum dynamic range across the sky and interior warm tones.',
     deliverables: ['Twilight exterior series', 'Interior ambient stills', 'High-res composites'],
   },
@@ -87,7 +118,7 @@ const projects: ProjectItem[] = [
     year: '2024',
     location: 'Ouray, CO',
     services: ['Detail Photography', 'Material Documentation'],
-    description: 'A close study of material and craft in a custom stone residence in Ouray. The client — a design-build firm — needed images that communicated the quality and precision of their stonework and millwork to prospective clients and design press.',
+    description: 'A close study of material and craft in a custom stone residence in Ouray. The client, a design-build firm, needed images that communicated the quality and precision of their stonework and millwork to prospective clients and design press.',
     details: 'Shot with macro and tilt-shift lenses to isolate material character without distortion. The resulting detail library is used across the firm\'s portfolio, pitch decks, and award submissions.',
     deliverables: ['60 detail stills', 'Material library', 'Print-ready masters'],
   },
@@ -142,7 +173,7 @@ const RedMountainMagazineStack = () => {
     <div className="bg-[#F5F3F0]">
 
       {/* ── Hero ── */}
-      <section className="min-h-screen flex flex-col md:flex-row relative overflow-hidden">
+      <section className="md:min-h-[calc(100vh-64px)] flex flex-col md:flex-row relative overflow-hidden">
         <div className="relative z-10 w-full md:w-2/5 flex flex-col justify-between px-10 md:px-16 py-12 md:py-16 bg-[#F5F3F0]">
           <div />
           <motion.div
@@ -177,12 +208,13 @@ const RedMountainMagazineStack = () => {
             >
               Telluride · Architecture &amp; Real Estate Photography
             </p>
-            <button
+            <a
+              href="#work"
               className="self-start sm:self-auto inline-flex items-center gap-3 px-7 py-3 border border-[#1A1A1A] text-[#1A1A1A] text-[10px] tracking-[0.2em] uppercase hover:bg-[#1A1A1A] hover:text-white transition-colors duration-300"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
               View Work <span>→</span>
-            </button>
+            </a>
           </motion.div>
         </div>
 
@@ -198,15 +230,15 @@ const RedMountainMagazineStack = () => {
 
       {/* ── Local SEO / Service Areas ── */}
       <section className="bg-white py-20 px-10 md:px-16 border-b border-black/10">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-3xl mx-auto text-center">
           <p
-            className="text-xs tracking-[0.15em] uppercase text-[#8B4545] mb-3"
+            className="text-xs tracking-[0.18em] uppercase text-[#8B4545] mb-5"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
           >
-            Based in Telluride, Colorado
+            Based in Telluride · Shooting Nationwide
           </p>
-          <p className="text-lg text-[#1A1A1A]/70 leading-relaxed max-w-3xl">
-            Red Mountain Photography is based in Telluride, Colorado, serving luxury real estate, architectural, and commercial clients throughout the Colorado high country. We work regularly in Telluride, Mountain Village, Ridgway, Ouray, Silverton, Durango, and Aspen — capturing the unique character of alpine and mountain resort properties.
+          <p className="text-lg text-[#1A1A1A]/70 leading-relaxed">
+            Telluride is home base, not a boundary. We know how light moves through the San Juans and we work constantly across the Colorado high country, from Mountain Village and Ouray to Aspen, Vail, and Steamboat Springs. We also travel nationwide for architects, developers, brokers, and hospitality brands who want this level of work on their project. If your property is somewhere else entirely, that is not a problem. Tell us where it is and we will get there.
           </p>
         </div>
       </section>
@@ -214,15 +246,15 @@ const RedMountainMagazineStack = () => {
       {/* ── Services Section ── */}
       <section className="bg-[#F5F3F0] py-24 px-10 md:px-16">
         <div className="max-w-6xl mx-auto">
-          <div className="mb-16">
+          <div className="mb-16 text-center">
             <h2
               className="text-4xl md:text-5xl font-light mb-6 text-[#1A1A1A]"
               style={{ fontFamily: "'Cormorant Garamond', serif" }}
             >
               Services
             </h2>
-            <p className="text-base text-[#1A1A1A]/70 max-w-3xl">
-              Every project starts with a vision — whether it's a luxury home, a restaurant launch, or a vacation rental. Red Mountain Photography works alongside architects, developers, and brands to translate that vision into images and motion that feel authentic and purposeful.
+            <p className="text-base text-[#1A1A1A]/70 max-w-3xl mx-auto">
+              Every project starts with a vision, whether it's a luxury home, a restaurant launch, or a vacation rental. Red Mountain Photography works alongside architects, developers, and brands to translate that vision into images and motion that feel authentic and purposeful.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -248,7 +280,7 @@ const RedMountainMagazineStack = () => {
                 Property Home Tour Videos
               </h3>
               <p className="text-base text-[#1A1A1A]/70 leading-relaxed">
-                Cinematic property walkthroughs and home tour videos designed for MLS listings, broker marketing, and social media. Professional color grading, motion design, and pacing that keeps viewers engaged.
+                Cinematic property walkthroughs and home tour videos designed for MLS listings, broker marketing, high-end vacation rentals, and social media. Professional color grading, 3D tracking, motion design, and pacing that keeps viewers engaged.
               </p>
             </div>
 
@@ -300,13 +332,13 @@ const RedMountainMagazineStack = () => {
             </h2>
             <div className="space-y-5 text-base leading-relaxed text-[#F5F3F0]/80" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
               <p>
-                I believe every space has a story waiting to be told — my job is to reveal that narrative through clean, intentional architectural photography and video.
+                I believe every space has a story waiting to be told. My job is to reveal that narrative through clean, intentional architectural photography and video.
               </p>
               <p>
                 Based in Telluride, and happy to travel wherever your project takes us. I partner with architects, designers, realtors and builders to craft images that honor their vision.
               </p>
               <p>
-                I'm grateful for the opportunity to bring clarity, light and purpose to every frame — and to help your work shine for years to come.
+                I'm grateful for the opportunity to bring clarity, light and purpose to every frame, and to help your work shine for years to come.
               </p>
             </div>
           </div>
@@ -314,7 +346,7 @@ const RedMountainMagazineStack = () => {
           <div className="w-full md:w-1/2 min-h-[30vh] md:min-h-0 relative">
             <img
               src="/images/Tim.avif"
-              alt="Tim Barber, founder of Red Mountain Photography — Telluride architectural photographer"
+              alt="Tim Barber, founder of Red Mountain Photography, Telluride architectural photographer"
               className="absolute inset-0 w-full h-full object-cover object-top"
             />
           </div>
@@ -322,7 +354,7 @@ const RedMountainMagazineStack = () => {
       </section>
 
       {/* ── Magazine stack ── */}
-      <div style={{ overflowAnchor: 'none' }}>
+      <div id="work" style={{ overflowAnchor: 'none' }}>
         {projects.map((project, index) => {
           const isOpen = project.id === expandedId;
           return (
@@ -410,13 +442,13 @@ const RedMountainMagazineStack = () => {
                           <p className="text-[10px] tracking-[0.2em] uppercase text-[#1A1A1A]/40 mb-3" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>Deliverables</p>
                           <ul className="space-y-1">
                             {project.deliverables.map(d => (
-                              <li key={d} className="text-sm text-[#1A1A1A]/70" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>— {d}</li>
+                              <li key={d} className="text-sm text-[#1A1A1A]/70" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>{d}</li>
                             ))}
                           </ul>
                         </div>
-                        <button className="mt-auto self-start inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-[#8B4545] border-b border-[#8B4545] pb-0.5 hover:opacity-60 transition-opacity" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-                          View Full Project →
-                        </button>
+                        <Link href="/contact" className="mt-auto self-start inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-[#8B4545] border-b border-[#8B4545] pb-0.5 hover:opacity-60 transition-opacity" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                          Start a Project Like This →
+                        </Link>
                       </div>
                     </div>
                   </motion.div>
@@ -438,162 +470,103 @@ const RedMountainMagazineStack = () => {
       </div>
 
       {/* ── FAQ ── */}
-      <section className="bg-[#F5F3F0] py-24 px-10 md:px-16">
+      <section id="faq" className="bg-[#F5F3F0] py-24 px-10 md:px-16">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: faqs.map(f => ({
+                '@type': 'Question',
+                name: f.q,
+                acceptedAnswer: { '@type': 'Answer', text: f.a },
+              })),
+            }),
+          }}
+        />
         <div className="max-w-4xl mx-auto">
           <h2
-            className="text-4xl md:text-5xl font-light mb-16 text-[#1A1A1A]"
+            className="text-4xl md:text-5xl font-light mb-16 text-[#1A1A1A] text-center"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
           >
             Frequently Asked Questions
           </h2>
           <div className="space-y-8">
-            <div>
-              <h3
-                className="text-lg font-medium mb-3 text-[#1A1A1A] uppercase tracking-[0.1em]"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-              >
-                What's your turnaround time for project deliverables?
-              </h3>
-              <p className="text-base text-[#1A1A1A]/70 leading-relaxed">
-                Most projects are delivered within 2-3 weeks of the shoot date. Expedited delivery (7-10 days) is available for rush listings and time-sensitive projects. We discuss timeline expectations during the initial consultation.
-              </p>
-            </div>
-            <div>
-              <h3
-                className="text-lg font-medium mb-3 text-[#1A1A1A] uppercase tracking-[0.1em]"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-              >
-                Do you offer drone photography for every project?
-              </h3>
-              <p className="text-base text-[#1A1A1A]/70 leading-relaxed">
-                Drone imagery adds significant value to most projects, especially for properties with acreage or dramatic settings. We assess each location for optimal drone angles and include aerial coverage in our comprehensive packages. Weather and local airspace restrictions may apply.
-              </p>
-            </div>
-            <div>
-              <h3
-                className="text-lg font-medium mb-3 text-[#1A1A1A] uppercase tracking-[0.1em]"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-              >
-                How do you handle image licensing and usage rights?
-              </h3>
-              <p className="text-base text-[#1A1A1A]/70 leading-relaxed">
-                All deliverables include a perpetual, non-exclusive license for marketing and promotional use. Clients may use images for MLS listings, broker marketing, print materials, and websites. We retain the right to use images in our portfolio and for case studies (with your permission).
-              </p>
-            </div>
-            <div>
-              <h3
-                className="text-lg font-medium mb-3 text-[#1A1A1A] uppercase tracking-[0.1em]"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-              >
-                What if I'm not satisfied with the initial selects?
-              </h3>
-              <p className="text-base text-[#1A1A1A]/70 leading-relaxed">
-                We collaborate closely with clients throughout the shoot and post-production. If you'd like to reshoot specific areas or have feedback on the selects, we schedule a revision session to ensure you're completely satisfied before final delivery.
-              </p>
-            </div>
-            <div>
-              <h3
-                className="text-lg font-medium mb-3 text-[#1A1A1A] uppercase tracking-[0.1em]"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-              >
-                Do you work outside the Colorado high country?
-              </h3>
-              <p className="text-base text-[#1A1A1A]/70 leading-relaxed">
-                While we're based in Telluride and specialize in mountain and resort properties, we do accept select projects in nearby markets. We're happy to discuss travel arrangements and location-specific pricing for out-of-area work.
-              </p>
-            </div>
+            {faqs.map(({ q, a }) => (
+              <div key={q}>
+                <h3
+                  className="text-lg font-medium mb-3 text-[#1A1A1A] uppercase tracking-[0.1em]"
+                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                >
+                  {q}
+                </h3>
+                <p className="text-base text-[#1A1A1A]/70 leading-relaxed">{a}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── Blog / Resources ── */}
-      <section className="bg-[#F5F3F0] py-24 px-10 md:px-16">
+      {/* ── Photography Resources ── */}
+      <section className="bg-white border-t border-b border-black/10 py-24 px-10 md:px-16">
         <div className="max-w-6xl mx-auto">
-          <h2
-            className="text-4xl md:text-5xl font-light mb-4 text-[#1A1A1A]"
-            style={{ fontFamily: "'Cormorant Garamond', serif" }}
-          >
-            Photography Resources
-          </h2>
-          <p className="text-base text-[#1A1A1A]/60 mb-16 max-w-2xl">
-            Tips, insights, and best practices for real estate marketing and architectural photography in the Colorado high country.
-          </p>
+          <div className="mb-16 text-center">
+            <h2
+              className="text-4xl md:text-5xl font-light mb-6 text-[#1A1A1A]"
+              style={{ fontFamily: "'Cormorant Garamond', serif" }}
+            >
+              Photography Resources
+            </h2>
+            <p className="text-base text-[#1A1A1A]/60 max-w-2xl mx-auto">
+              Tips, insights, and best practices for real estate marketing and architectural photography in the Colorado high country.
+            </p>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            {/* Blog Card 1 */}
-            <article className="bg-white p-6 border border-black/5">
-              <p className="text-xs text-[#8B4545] uppercase tracking-[0.15em] mb-2">Guide</p>
-              <h3 className="text-lg font-medium text-[#1A1A1A] mb-3">
-                The Golden Hour: Capturing Mountain Light in Real Estate Photography
-              </h3>
-              <p className="text-sm text-[#1A1A1A]/60 mb-4 line-clamp-3">
-                Why timing matters when shooting luxury properties. We explore how to maximize natural light for breathtaking aerial and interior imagery.
-              </p>
-              <button className="text-xs text-[#8B4545] uppercase tracking-[0.15em] hover:opacity-60 transition-opacity">
-                Read more →
-              </button>
-            </article>
-
-            {/* Blog Card 2 */}
-            <article className="bg-white p-6 border border-black/5">
-              <p className="text-xs text-[#8B4545] uppercase tracking-[0.15em] mb-2">Strategy</p>
-              <h3 className="text-lg font-medium text-[#1A1A1A] mb-3">
-                Drone Photography: When to Use Aerial Shots in Luxury Marketing
-              </h3>
-              <p className="text-sm text-[#1A1A1A]/60 mb-4 line-clamp-3">
-                Best practices for incorporating aerial imagery into your listing package. Learn how drone photography increases buyer engagement and speeds sales.
-              </p>
-              <button className="text-xs text-[#8B4545] uppercase tracking-[0.15em] hover:opacity-60 transition-opacity">
-                Read more →
-              </button>
-            </article>
-
-            {/* Blog Card 3 */}
-            <article className="bg-white p-6 border border-black/5">
-              <p className="text-xs text-[#8B4545] uppercase tracking-[0.15em] mb-2">Insight</p>
-              <h3 className="text-lg font-medium text-[#1A1A1A] mb-3">
-                Material &amp; Craft: Highlighting Quality in Architectural Photography
-              </h3>
-              <p className="text-sm text-[#1A1A1A]/60 mb-4 line-clamp-3">
-                How close-up and detail photography showcases the precision of custom stonework, millwork, and finishing. Perfect for design portfolios and press.
-              </p>
-              <button className="text-xs text-[#8B4545] uppercase tracking-[0.15em] hover:opacity-60 transition-opacity">
-                Read more →
-              </button>
-            </article>
-
-            {/* Blog Card 4 */}
-            <article className="bg-white p-6 border border-black/5">
-              <p className="text-xs text-[#8B4545] uppercase tracking-[0.15em] mb-2">Trend</p>
-              <h3 className="text-lg font-medium text-[#1A1A1A] mb-3">
-                The Rise of Cinematic Video in Real Estate Marketing
-              </h3>
-              <p className="text-sm text-[#1A1A1A]/60 mb-4 line-clamp-3">
-                Short-form and long-form video content is now essential for luxury listings. Explore how motion captures lifestyle and drives buyer interest faster.
-              </p>
-              <button className="text-xs text-[#8B4545] uppercase tracking-[0.15em] hover:opacity-60 transition-opacity">
-                Read more →
-              </button>
-            </article>
-
-            {/* Blog Card 5 */}
-            <article className="bg-white p-6 border border-black/5">
-              <p className="text-xs text-[#8B4545] uppercase tracking-[0.15em] mb-2">Case Study</p>
-              <h3 className="text-lg font-medium text-[#1A1A1A] mb-3">
-                Comprehensive Photography Packages: What's Included &amp; Why
-              </h3>
-              <p className="text-sm text-[#1A1A1A]/60 mb-4 line-clamp-3">
-                A breakdown of our full-service approach: interior, exterior, drone, and video coverage. See how each component contributes to successful sales outcomes.
-              </p>
-              <button className="text-xs text-[#8B4545] uppercase tracking-[0.15em] hover:opacity-60 transition-opacity">
-                Read more →
-              </button>
-            </article>
+            {resourcePosts.map((post) => (
+              <article key={post.slug} className="bg-[#F5F3F0] border border-black/5 flex flex-col">
+                <Link href={`/blog/${post.slug}`} className="block overflow-hidden">
+                  <img
+                    src={post.image}
+                    alt={post.imageAlt}
+                    className="w-full aspect-[3/2] object-cover hover:scale-[1.02] transition-transform duration-500"
+                  />
+                </Link>
+                <div className="p-6 flex flex-col flex-1">
+                  <p className="text-xs text-[#8B4545] uppercase tracking-[0.15em] mb-2" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                    {post.category}
+                  </p>
+                  <h3 className="text-lg font-medium text-[#1A1A1A] mb-3 leading-snug" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+                    <Link href={`/blog/${post.slug}`} className="hover:text-[#8B4545] transition-colors">
+                      {post.title}
+                    </Link>
+                  </h3>
+                  <p className="text-sm text-[#1A1A1A]/60 mb-4 leading-relaxed">{post.excerpt}</p>
+                  <Link
+                    href={`/blog/${post.slug}`}
+                    className="mt-auto self-start text-xs text-[#8B4545] uppercase tracking-[0.15em] hover:opacity-60 transition-opacity"
+                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                  >
+                    Read More →
+                  </Link>
+                </div>
+              </article>
+            ))}
+          </div>
+          <div className="mt-14 text-center">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-3 px-7 py-3 border border-[#8B4545] text-[#8B4545] text-[10px] tracking-[0.2em] uppercase hover:bg-[#8B4545] hover:text-white transition-colors duration-300"
+              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            >
+              View All Articles <span>→</span>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* ── Testimonials ── */}
-      <section className="bg-white py-24 px-10 md:px-16 border-b border-black/10">
+      <section className="bg-[#F5F3F0] py-24 px-10 md:px-16">
         <div className="max-w-5xl mx-auto">
           <h2
             className="text-4xl md:text-5xl font-light mb-16 text-[#1A1A1A] text-center"
@@ -634,38 +607,13 @@ const RedMountainMagazineStack = () => {
                 className="text-sm italic text-[#1A1A1A]/80 mb-4 leading-relaxed"
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
               >
-                "The aerial coverage was exactly what we needed—it provided context and scale that our MLS photos couldn't. The drone work was professional and added genuine value to the marketing package."
+                "The aerial coverage was exactly what we needed. It provided context and scale that our MLS photos couldn't, and the drone work added genuine value to the marketing package."
               </p>
               <p className="text-xs font-medium text-[#1A1A1A] uppercase tracking-[0.1em]">
                 Luxury Property Developer, Mountain Village
               </p>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ── CTA ── */}
-      <section className="bg-[#1A1A1A] text-[#F5F3F0] py-32 px-16">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2
-            className="text-6xl font-light mb-6"
-            style={{ fontFamily: "'Cormorant Garamond', serif" }}
-          >
-            Discover Our Work
-          </h2>
-          <p
-            className="text-base text-[#F5F3F0]/60 mb-12 max-w-lg mx-auto leading-relaxed"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-          >
-            Discover the complete Red Mountain photography collection.
-            Each series showcases a unique perspective on wilderness and light.
-          </p>
-          <button
-            className="inline-flex items-center gap-3 px-10 py-4 bg-[#8B4545] text-white text-xs tracking-[0.2em] uppercase hover:bg-[#F5F3F0] hover:text-[#1A1A1A] transition-colors duration-300"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-          >
-            View Full Portfolio <span>→</span>
-          </button>
         </div>
       </section>
 

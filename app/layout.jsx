@@ -1,42 +1,68 @@
 import './globals.css'
+import SiteHeader from './components/SiteHeader'
+import SiteFooter from './components/SiteFooter'
+import StickyMobileCTA from './components/StickyMobileCTA'
+import Analytics from './components/Analytics'
 
 export const metadata = {
+  metadataBase: new URL('https://redmountainphotos.com'),
   title: 'Red Mountain Photography | Luxury Real Estate & Architectural Photography in Telluride, Colorado',
-  description: 'Award-winning architectural and real estate photography for luxury homes, mountain properties, and design firms in Telluride, Mountain Village, and the Colorado high country. FAA-certified drone imaging, cinematic video, and portfolio-quality work.',
-  keywords: 'real estate photography Telluride, architectural photography Colorado, drone photography mountain homes, luxury property photography',
+  description: 'Architectural and real estate photography for luxury homes, mountain properties, and design firms. Based in Telluride, Colorado and available for projects nationwide. FAA-certified drone imaging, cinematic video, and portfolio-quality work.',
+  keywords: 'real estate photography Telluride, architectural photography Colorado, drone photography mountain homes, luxury property photography, travel architectural photographer',
+  alternates: {
+    canonical: '/',
+  },
   openGraph: {
     title: 'Red Mountain Photography | Telluride Luxury Real Estate Photography',
-    description: 'Architectural and real estate photography for mountain properties in Telluride and Colorado',
+    description: 'Architectural and real estate photography for mountain properties. Based in Telluride, available nationwide.',
     url: 'https://redmountainphotos.com',
     siteName: 'Red Mountain Photography',
+    locale: 'en_US',
+    type: 'website',
     images: [
       {
-        url: 'https://redmountainphotos.com/images/actual/544A5593.jpg',
+        url: 'https://redmountainphotos.com/images/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Red Mountain Photography - Luxury interior photography'
+        alt: 'Aerial view of a luxury mountain home at dusk surrounded by aspens with the San Juan range beyond, Telluride, Colorado'
       }
     ]
   },
-  canonical: 'https://redmountainphotos.com'
 }
 
 export default function RootLayout({ children }) {
   const schemaData = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': 'ProfessionalService',
+    '@id': 'https://redmountainphotos.com/#business',
     name: 'Red Mountain Photography',
-    description: 'Luxury real estate and architectural photography services in Telluride, Colorado',
+    description: 'Luxury real estate, architectural, and aerial photography. Based in Telluride, Colorado and available for projects nationwide.',
     url: 'https://redmountainphotos.com',
-    telephone: '+1-970-XXXXX',
+    telephone: '+1-970-670-0846',
+    email: 'tim@redmountainphotos.com',
+    image: 'https://redmountainphotos.com/images/og-image.jpg',
+    priceRange: '$$$',
+    founder: {
+      '@type': 'Person',
+      name: 'Tim Barber',
+      jobTitle: 'Photographer'
+    },
+    sameAs: [
+      'https://instagram.com/redmountainphotos',
+      'https://facebook.com/redmountainphotos'
+    ],
     areaServed: [
+      { '@type': 'Country', name: 'United States' },
       'Telluride, CO',
       'Mountain Village, CO',
       'Ridgway, CO',
       'Ouray, CO',
       'Silverton, CO',
       'Durango, CO',
-      'Aspen, CO'
+      'Aspen, CO',
+      'Vail, CO',
+      'Breckenridge, CO',
+      'Steamboat Springs, CO'
     ],
     geo: {
       '@type': 'GeoCoordinates',
@@ -45,34 +71,37 @@ export default function RootLayout({ children }) {
     },
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Telluride',
       addressLocality: 'Telluride',
       addressRegion: 'CO',
       postalCode: '81435',
       addressCountry: 'US'
     },
-    service: [
-      {
-        '@type': 'Service',
-        name: 'Architectural Photography',
-        description: 'High-end architectural photography for custom homes and design projects'
-      },
-      {
-        '@type': 'Service',
-        name: 'Real Estate Photography',
-        description: 'Luxury real estate and property marketing photography'
-      },
-      {
-        '@type': 'Service',
-        name: 'Drone & Aerial Photography',
-        description: 'FAA-certified drone imaging and aerial photography'
-      },
-      {
-        '@type': 'Service',
-        name: 'Cinematic Video',
-        description: 'Professional video and cinematic reel production for properties and marketing'
-      }
-    ]
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Photography Services',
+      itemListElement: [
+        {
+          '@type': 'Service',
+          name: 'Architectural Photography',
+          description: 'High-end architectural photography for custom homes and design projects'
+        },
+        {
+          '@type': 'Service',
+          name: 'Real Estate Photography',
+          description: 'Luxury real estate and property marketing photography'
+        },
+        {
+          '@type': 'Service',
+          name: 'Drone & Aerial Photography',
+          description: 'FAA-certified drone imaging and aerial photography'
+        },
+        {
+          '@type': 'Service',
+          name: 'Cinematic Video',
+          description: 'Professional video and cinematic reel production for properties and marketing'
+        }
+      ]
+    }
   };
 
   return (
@@ -81,7 +110,13 @@ export default function RootLayout({ children }) {
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
       </head>
-      <body className="font-inter">{children}</body>
+      <body className="pb-[56px] md:pb-0">
+        <SiteHeader />
+        {children}
+        <SiteFooter />
+        <StickyMobileCTA />
+        <Analytics />
+      </body>
     </html>
   )
 }

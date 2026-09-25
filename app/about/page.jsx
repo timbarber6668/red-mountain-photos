@@ -1,7 +1,10 @@
+import Breadcrumbs from '../components/Breadcrumbs';
 export const metadata = {
   title: 'About Red Mountain Photography | Tim Barber | Telluride',
   description: 'Meet Tim Barber, founder of Red Mountain Photography. Learn about our approach to architectural and real estate photography in Telluride, Colorado.',
-  canonical: 'https://redmountainphotos.com/about'
+  alternates: {
+    canonical: '/about',
+  },
 };
 
 export default function AboutPage() {
@@ -10,6 +13,9 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="bg-[#1A1A1A] text-[#F5F3F0] py-24 px-10 md:px-16">
         <div className="max-w-4xl mx-auto">
+          <div className="mb-8 text-[#F5F3F0]">
+            <Breadcrumbs current="About" />
+          </div>
           <h1
             className="text-6xl md:text-7xl font-light mb-6 leading-tight"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
@@ -44,10 +50,10 @@ export default function AboutPage() {
             </h2>
             <div className="space-y-6 text-base text-[#1A1A1A]/75 leading-relaxed">
               <p>
-                I believe every space has a story waiting to be told — my job is to reveal that narrative through clean, intentional architectural photography and video.
+                I believe every space has a story waiting to be told. My job is to reveal that narrative through clean, intentional architectural photography and video.
               </p>
               <p>
-                Based in Telluride (and happy to travel wherever your project takes us), I partner with architects, designers, realtors and builders to craft images that honor their vision. I'm grateful for the opportunity to bring clarity, light and purpose to every frame — and to help your work shine for years to come.
+                Based in Telluride (and happy to travel wherever your project takes us), I partner with architects, designers, realtors and builders to craft images that honor their vision. I'm grateful for the opportunity to bring clarity, light and purpose to every frame, and to help your work shine for years to come.
               </p>
             </div>
 
@@ -79,25 +85,27 @@ export default function AboutPage() {
       {/* Services Grid */}
       <section className="bg-white py-24 px-10 md:px-16 border-t border-b border-black/10">
         <div className="max-w-6xl mx-auto">
-          <div className="mb-16">
+          <div className="mb-16 text-center">
             <h2
               className="text-4xl md:text-5xl font-light mb-6 text-[#1A1A1A] leading-tight"
               style={{ fontFamily: "'Cormorant Garamond', serif" }}
             >
               Services
             </h2>
-            <p className="text-base text-[#1A1A1A]/70 max-w-3xl">
-              Every project starts with a vision — whether it's a luxury home, a restaurant launch, or a vacation rental. Red Mountain Photography works alongside architects, developers, and brands to translate that vision into images and motion that feel authentic and purposeful. Below are the services that help your story stand out.
+            <p className="text-base text-[#1A1A1A]/70 max-w-3xl mx-auto">
+              Every project starts with a vision, whether it's a luxury home, a restaurant launch, or a vacation rental. Red Mountain Photography works alongside architects, developers, and brands to translate that vision into images and motion that feel authentic and purposeful. Below are the services that help your story stand out.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Service 1 */}
             <div>
-              <div className="bg-[#F5F3F0] aspect-video mb-6 border border-black/10 flex items-center justify-center">
-                <div className="text-center text-[#1A1A1A]/40">
-                  <p className="text-sm">Service Image</p>
-                </div>
+              <div className="aspect-video mb-6 border border-black/10 overflow-hidden">
+                <img
+                  src="/images/actual/544A6445.jpg"
+                  alt="Luxury mountain home great room with stone fireplace and floor-to-ceiling windows framing snowy peaks, Telluride architectural photography"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3
                 className="text-2xl font-light mb-4 text-[#1A1A1A]"
@@ -112,10 +120,12 @@ export default function AboutPage() {
 
             {/* Service 2 */}
             <div>
-              <div className="bg-[#F5F3F0] aspect-video mb-6 border border-black/10 flex items-center justify-center">
-                <div className="text-center text-[#1A1A1A]/40">
-                  <p className="text-sm">Service Image</p>
-                </div>
+              <div className="aspect-video mb-6 border border-black/10 overflow-hidden">
+                <img
+                  src="/images/actual/544A5484.jpg"
+                  alt="Open-plan penthouse dining and living space with designer chandelier, property tour videography in Mountain Village, Colorado"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3
                 className="text-2xl font-light mb-4 text-[#1A1A1A]"
@@ -130,10 +140,12 @@ export default function AboutPage() {
 
             {/* Service 3 */}
             <div>
-              <div className="bg-[#F5F3F0] aspect-video mb-6 border border-black/10 flex items-center justify-center">
-                <div className="text-center text-[#1A1A1A]/40">
-                  <p className="text-sm">Service Image</p>
-                </div>
+              <div className="aspect-video mb-6 border border-black/10 overflow-hidden">
+                <img
+                  src="/images/actual/544A4778.jpg"
+                  alt="Steaming rooftop hot tub with lounge chairs overlooking forested mountain slopes, resort and hospitality photography in Colorado"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3
                 className="text-2xl font-light mb-4 text-[#1A1A1A]"
@@ -148,10 +160,12 @@ export default function AboutPage() {
 
             {/* Service 4 */}
             <div>
-              <div className="bg-[#F5F3F0] aspect-video mb-6 border border-black/10 flex items-center justify-center">
-                <div className="text-center text-[#1A1A1A]/40">
-                  <p className="text-sm">Service Image</p>
-                </div>
+              <div className="aspect-video mb-6 border border-black/10 overflow-hidden">
+                <img
+                  src="/images/actual/DJI_0943.jpg"
+                  alt="Top-down aerial drone view of a modern mountain residence with rooftop hot tub and courtyard, FAA-certified drone photography"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <h3
                 className="text-2xl font-light mb-4 text-[#1A1A1A]"
@@ -171,7 +185,7 @@ export default function AboutPage() {
       <section className="py-24 px-10 md:px-16 bg-[#F5F3F0]">
         <div className="max-w-4xl mx-auto">
           <h2
-            className="text-4xl md:text-5xl font-light mb-16 text-[#1A1A1A]"
+            className="text-4xl md:text-5xl font-light mb-16 text-[#1A1A1A] text-center"
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
           >
             How We Work
@@ -185,7 +199,7 @@ export default function AboutPage() {
                 01. Discover
               </h3>
               <p className="text-base text-[#1A1A1A]/70 leading-relaxed">
-                We start by listening — understanding your vision, your goals, and the story you want to tell about your space or project.
+                We start by listening to understand your vision, your goals, and the story you want to tell about your space or project.
               </p>
             </div>
             <div>
@@ -196,7 +210,7 @@ export default function AboutPage() {
                 02. Execute
               </h3>
               <p className="text-base text-[#1A1A1A]/70 leading-relaxed">
-                We shoot with intentionality — careful composition, strategic lighting, and attention to every detail to capture the essence of your project.
+                We shoot with intentionality: careful composition, strategic lighting, and attention to every detail to capture the essence of your project.
               </p>
             </div>
             <div>
@@ -207,7 +221,7 @@ export default function AboutPage() {
                 03. Deliver
               </h3>
               <p className="text-base text-[#1A1A1A]/70 leading-relaxed">
-                We refine and deliver — meticulous post-production and a cohesive collection of images ready for marketing, portfolio, or publication.
+                We refine and deliver: meticulous post-production and a cohesive collection of images ready for marketing, portfolio, or publication.
               </p>
             </div>
           </div>

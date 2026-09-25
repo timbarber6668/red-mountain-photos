@@ -22,23 +22,50 @@ Preview tool launch config: `mockup-site/.claude/launch.json`
 ```
 app/
   page.jsx                          ← renders RedMountainMagazineStack
-  layout.jsx                        ← Google Fonts import, metadata
+  layout.jsx                        ← Google Fonts, metadata, LocalBusiness JSON-LD, SiteHeader/SiteFooter
   globals.css
+  sitemap.js                        ← /sitemap.xml (base URL redmountainphotos.com)
+  robots.js                         ← /robots.txt
+  about/page.jsx                    ← About page (bio, service images, process)
+  contact/page.jsx                  ← Contact page (server, metadata)
+  contact/ContactForm.jsx           ← Client form — submits via mailto: link
   components/
-    RedMountainMagazineStack.tsx    ← MAIN COMPONENT (everything is here)
+    RedMountainMagazineStack.tsx    ← MAIN home page component (all home sections)
+    SiteHeader.jsx                  ← global nav: Work (/#work), About, Contact
+    SiteFooter.jsx                  ← global footer: contact, links, service areas
 public/
   images/
     logo.png                        ← transparent logo (mountain + camera icon, red)
     Tim.avif                        ← founder portrait (About section)
     actual/
       544A5593.jpg  ← HERO image (bedroom, chevron wall, brass lamp)
-      DJI_0408.jpg  ← Alpine Ascent (drone aerial)
-      544A8777.jpg  ← Shadowed Ridges
-      544A8388.jpg  ← Mountain Gaze
-      544A1449.jpg  ← Forest Depths
+      DJI_0547.jpg  ← Galloping Goose Chalet (drone aerial)
+      544A8777.jpg  ← Sky High at the Plaza
+      544A8388.jpg  ← Mountainside Retreat
+      544A1449.jpg  ← Ironwood Estates
       544A1850.jpg  ← Twilight Approach
       544A3825.jpg  ← Weathered Stone
+      544A6445.jpg  ← About page: Real Estate/Architecture card
+      544A5484.jpg  ← About page: Home Tour Videos card
+      544A4778.jpg  ← About page: Hospitality card (rooftop hot tub)
+      DJI_0943.jpg  ← About page: Drone card (top-down aerial)
+      544A6048.jpg  ← Contact page sidebar (kitchen, resized to 1600px)
 ```
+
+## Launch Audit (completed Sept 24, 2026)
+Custom 404 (`app/not-found.jsx`), thank-you page (`app/thank-you/`, noindex, form redirects here 800ms after the mailto fires), privacy policy (`app/privacy/`), breadcrumbs (`components/Breadcrumbs.jsx`, visual + BreadcrumbList schema, on about/contact/blog/article/privacy), sticky mobile CTA (`components/StickyMobileCTA.jsx`, Call + Get a Quote, hidden on /contact and /thank-you, body has pb-[56px] md:pb-0 so the footer clears it), FAQPage schema (FAQ copy now lives in the `faqs` array at the top of RedMountainMagazineStack so schema and visible text cannot drift), Analytics component (`components/Analytics.jsx`, renders nothing until NEXT_PUBLIC_GA_ID is set).
+
+Fixed: og:image was a PORTRAIT photo declared as 1200x630 and would have cropped badly on every social platform. Now `/images/og-image.jpg`, a real 1200x630 landscape crop of DJI_0547. Also fixed a 180px dead gap under the mobile hero (min-h is now md-only) and the Resources nav link that was hidden on mobile.
+
+Schema upgraded from LocalBusiness to ProfessionalService with hasOfferCatalog, founder, and areaServed including Country: United States (see travel positioning below).
+
+## Contact Info (confirmed by Tim, July 2026)
+- Phone: (970) 670-0846 — contact page, footer, schema (`tel:+19706700846`)
+- Email: tim@redmountainphotos.com — form mailto, footer, contact page, schema
+
+## Known Placeholders (need real data from Tim before launch)
+- Testimonial quotes are placeholder copy with anonymous attributions
+- Confirm social handles are Tim's (instagram/facebook.com/redmountainphotos)
 
 ## Page Sections (top to bottom)
 
@@ -95,21 +122,34 @@ public/
 #### Projects Data
 | # | Title | Category | Image | Location |
 |---|-------|----------|-------|----------|
-| 1 | Alpine Ascent | Drone Series | DJI_0408.jpg | Telluride, CO |
-| 2 | Shadowed Ridges | Landscape Study | 544A8777.jpg | Mountain Village, CO |
-| 3 | Mountain Gaze | Portrait Series | 544A8388.jpg | Telluride, CO |
-| 4 | Forest Depths | Dense Growth | 544A1449.jpg | Ridgway, CO |
+| 1 | Galloping Goose Chalet | Drone Series | DJI_0547.jpg | Mountain Village, CO |
+| 2 | Sky High at the Plaza | Interior Study | 544A8777.jpg | Mountain Village, CO |
+| 3 | Mountainside Retreat | Renovation Series | 544A8388.jpg | Telluride, CO |
+| 4 | Ironwood Estates | Interior Design | 544A1449.jpg | Telluride, CO |
 | 5 | Twilight Approach | Golden Hour | 544A1850.jpg | Telluride, CO |
 | 6 | Weathered Stone | Detail Focus | 544A3825.jpg | Ouray, CO |
 
-### 6. FAQ Section
-- Cormorant Garamond heading, Space Grotesk Q&A blocks
-- Topics: turnaround time, pricing, shoot prep, coverage area, deliverables, licensing
+Each expanded panel's "Start a Project Like This →" links to `/contact`.
 
-### 7. CTA Section
-- Dark `#1A1A1A` background, full width
-- Cormorant Garamond display headline (light weight)
-- `#8B4545` filled button → inverts on hover to off-white
+### 6. FAQ Section (`#faq`)
+- Cormorant Garamond heading, Space Grotesk Q&A blocks
+- Topics: turnaround time, pricing, drone coverage, licensing, revisions, coverage area
+
+### 7. Photography Resources (white bg, contrasts with FAQ's off-white)
+- First 3 posts from `app/blog/posts.js` as image cards → link to /blog/<slug>; "View All Articles" → /blog
+- Blog: posts.js (content data), blog/page.jsx (index), blog/[slug]/page.jsx (article template, SSG)
+
+### 8. Testimonials (off-white bg)
+- 3 quotes with anonymous role attributions — **placeholder copy, replace with real client quotes**
+
+### 9. Footer (SiteFooter)
+- Last section on every page; no separate CTA panel (removed at Tim's request — he doesn't want a "full portfolio" promise)
+
+## Copy & Layout Rules (from Tim)
+- **No em dashes anywhere.** Use commas, colons, or periods instead.
+- **Centered spine, per-panel formatting:** every section's container is centered (`max-w-* mx-auto`); section headers are `text-center`; content inside (Q&As, service cards, article cards) keeps its own left-aligned formatting. Page heroes (about/contact/blog) stay left-aligned text inside centered containers. Tim asked for "more center aligned, but each panel its own formatting."
+- Project writeups in the magazine stack are drafts; Tim is revising them.
+- **Travel positioning (Sept 2026):** Tim wants MORE travel work. Copy no longer reads Telluride-only. The homepage band is "Based in Telluride · Shooting Nationwide", the FAQ question is "Do you travel for projects?" (yes, gladly), the footer and contact page say home base + nationwide, the contact form has a Property Location field, and schema areaServed leads with Country: United States. Do not reintroduce copy that enumerates only Colorado towns as the service area.
 
 ## Technical Notes
 
