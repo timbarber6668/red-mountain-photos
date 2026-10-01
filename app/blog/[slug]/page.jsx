@@ -45,6 +45,7 @@ export default function BlogPostPage({ params }) {
     mainEntityOfPage: `https://redmountainphotos.com/blog/${post.slug}`,
     author: { '@type': 'Person', '@id': 'https://redmountainphotos.com/#tim-barber', name: 'Tim Barber', url: 'https://redmountainphotos.com/about' },
     publisher: { '@id': 'https://redmountainphotos.com/#business' },
+    ...(post.sources && { citation: post.sources.map((src) => src.url) }),
   };
   const published = new Date(`${post.date}T12:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 
@@ -106,6 +107,26 @@ export default function BlogPostPage({ params }) {
               ))}
             </div>
           ))}
+
+          {post.sources && (
+            <div className="border-t border-black/10 pt-8 mt-12">
+              <h2
+                className="text-[11px] font-medium mb-4 text-[#1A1A1A]/60 uppercase tracking-[0.2em]"
+                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              >
+                Sources
+              </h2>
+              <ol className="list-decimal pl-5 space-y-2 text-sm text-[#1A1A1A]/65 leading-relaxed">
+                {post.sources.map((src) => (
+                  <li key={src.url}>
+                    <a href={src.url} target="_blank" rel="noopener noreferrer" className="underline decoration-[#8B4545]/40 underline-offset-2 hover:text-[#8B4545]">
+                      {src.label}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          )}
 
           <div className="border-t border-black/10 pt-8 mt-12">
             <p className="text-base text-[#1A1A1A]/70 mb-6">

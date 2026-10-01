@@ -91,7 +91,7 @@ export default function ContactForm() {
             <option value="">Choose one</option>
             <option value="Real estate listing">Real estate listing</option>
             <option value="Architecture or interior design">Architecture or interior design</option>
-            <option value="Hospitality or vacation rental">Hospitality or vacation rental</option>
+            <option value="Hospitality or luxury vacation rental">Hospitality or luxury vacation rental</option>
             <option value="Property video">Property video</option>
             <option value="Drone and aerial">Drone and aerial</option>
             <option value="Something else">Something else</option>
@@ -135,13 +135,12 @@ export default function ContactForm() {
 
       {status === 'error' ? (
         <p className="text-sm text-[#8B4545]" role="alert" style={labelStyle}>
-          Something went wrong sending that. Please email{' '}
-          <a href={`mailto:${CONTACT_EMAIL}`} className="underline">{CONTACT_EMAIL}</a> or call (970) 670-0846.
+          Something went wrong sending that. Please try again, or call{' '}
+          <a href="tel:+19706700846" className="underline">(970) 670-0846</a>.
         </p>
       ) : (
         <p className="text-xs text-[#1A1A1A]/50 leading-relaxed" style={labelStyle}>
-          You will hear back within a day. Prefer email? Write to{' '}
-          <a href={`mailto:${CONTACT_EMAIL}`} className="text-[#8B4545] underline">{CONTACT_EMAIL}</a>.
+          You will hear back within a day with a quote and available dates.
         </p>
       )}
     </form>

@@ -75,7 +75,7 @@ export default function PrivacyPage() {
           ])}
 
           {section('Your Choices', [
-            'You can ask us what information we hold about you, ask us to correct it, or ask us to delete it. You can also ask us to stop contacting you at any time. Write to tim@redmountainphotos.com and we will take care of it.',
+            'You can ask us what information we hold about you, ask us to correct it, or ask us to delete it. You can also ask us to stop contacting you at any time. Send a note through the contact form and we will take care of it.',
           ])}
 
           {section('Children', [
@@ -87,7 +87,7 @@ export default function PrivacyPage() {
           ])}
 
           {section('Contact Us', [
-            'Questions about this policy or about information we hold can go to tim@redmountainphotos.com or (970) 670-0846. Red Mountain Photography is based in Telluride, Colorado.',
+            'Questions about this policy or about information we hold can go through the contact form or to (970) 670-0846. Red Mountain Photography is based in Telluride, Colorado.',
           ])}
         </div>
       </section>

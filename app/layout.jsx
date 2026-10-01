@@ -7,8 +7,8 @@ import Analytics from './components/Analytics'
 export const metadata = {
   metadataBase: new URL('https://redmountainphotos.com'),
   title: 'Red Mountain Photography | Architectural & Real Estate Photography, Telluride, Colorado',
-  description: 'Architectural, interior and real estate photography and video by Tim Barber. Based in Telluride, Colorado, working across the Colorado high country and nationwide. FAA-certified drone, twilight and property video.',
-  keywords: 'real estate photography Telluride, architectural photography Colorado, drone photography mountain homes, luxury property photography, travel architectural photographer',
+  description: 'Architectural, interior, real estate and luxury vacation rental photography and video by Tim Barber. Based in Telluride, Colorado, working across the Colorado high country and nationwide.',
+  keywords: 'architectural photography Telluride, real estate photography Telluride, interior design photography Colorado, vacation rental photography Telluride, Airbnb photographer Telluride, Vrbo photography, luxury vacation rental photographer Colorado, drone photography mountain homes',
   alternates: {
     canonical: '/',
   },
@@ -43,7 +43,6 @@ export default function RootLayout({ children }) {
     logo: 'https://redmountainphotos.com/icon.png',
     url: 'https://redmountainphotos.com',
     telephone: '+1-970-670-0846',
-    email: 'tim@redmountainphotos.com',
     image: 'https://redmountainphotos.com/images/og-image.jpg',
     priceRange: '$$$',
     founder: {
@@ -52,10 +51,6 @@ export default function RootLayout({ children }) {
       name: 'Tim Barber',
       jobTitle: 'Architectural and Real Estate Photographer',
       image: 'https://redmountainphotos.com/images/tim-barber.jpg'
-    },
-    parentOrganization: {
-      '@type': 'Organization',
-      name: 'Red Mountain Media'
     },
     sameAs: [
       'https://instagram.com/redmountainphotos',
@@ -99,6 +94,12 @@ export default function RootLayout({ children }) {
           '@type': 'Service',
           name: 'Real Estate Photography',
           description: 'Luxury real estate and property marketing photography'
+        },
+        {
+          '@type': 'Service',
+          name: 'Vacation Rental Photography',
+          description: 'Photography and video for luxury vacation rentals and short-term rentals on Airbnb, Vrbo and direct booking sites',
+          url: 'https://redmountainphotos.com/vacation-rental-photography'
         },
         {
           '@type': 'Service',

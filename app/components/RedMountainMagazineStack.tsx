@@ -33,28 +33,24 @@ const faqs = [
   {
     id: 'drone',
     q: 'Can you fly a drone at my property?',
-    a: 'Usually. All aerial work is flown by an FAA-certified pilot. Some sites sit in controlled airspace or have local restrictions, and mountain wind can push a flight to another day, so we check your location in advance and plan a backup window.',
+    a: 'Usually. All aerial work is flown by an FAA-certified pilot. Some sites sit in controlled airspace or have local restrictions, and mountain weather can push a flight to another day, so we check your location in advance and plan a backup window.',
   },
   {
     id: 'licensing',
-    q: 'Who can use the photos?',
+    q: 'How does your photo licensing work?',
     a: 'The client who books the shoot can use the images to market that property anywhere: MLS, web, print and social. Any other company that wants to use them, such as a builder, architect, designer or supplier, needs its own license. Multiple licensees get a discount, and we encourage everyone involved to share the cost of the shoot.',
   },
   {
     id: 'prep',
     q: 'How should I prepare the property?',
-    a: 'Clear the counters, open the blinds, turn on every light and replace any burned-out bulbs. Move cars, hoses and trash bins out of sight. Our preparation guide has the full room-by-room checklist.',
+    a: 'Clean and stage the home as best you can. Clear clutter off counters and surfaces, replace any burned-out bulbs, and move cars, hoses and trash bins out of sight. Clean the windows, glass doors and mirrors: smudged glass is the hardest thing to fix in editing. Our preparation guide has the full room-by-room checklist.',
     link: { href: '/blog/preparing-your-home-for-a-photo-shoot', label: 'Read the preparation guide' },
-  },
-  {
-    id: 'revisions',
-    q: 'What if an image is not quite right?',
-    a: 'Tell us. We re-edit any image that misses the brief, and if a room needs to be reshot we schedule it.',
   },
   {
     id: 'booking',
     q: 'How do I book?',
-    a: 'Send the property details through the contact form or call (970) 670-0846. New clients pay a 50% deposit to hold the date, with the balance due on delivery.',
+    a: 'Send the property details through the contact form and you will hear back within a day with a quote and available dates. For most shoots, payment is due when the photos are delivered. Projects with travel or a larger scope have their terms set out in the quote.',
+    link: { href: '/contact', label: 'Request a quote' },
   },
 ];
 

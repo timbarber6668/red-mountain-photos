@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import services from '../lib/services';
 
 const sans = { fontFamily: "'Space Grotesk', sans-serif" };
@@ -32,11 +33,24 @@ export default function ServicesGrid({ variant = 'compact' }) {
             className={`${compact ? 'text-xl md:text-2xl' : 'text-2xl md:text-3xl'} font-light mb-3 text-[#1A1A1A] leading-tight`}
             style={serif}
           >
-            {s.title}
+            {s.href ? (
+              <Link href={s.href} className="hover:text-[#8B4545] transition-colors">{s.title}</Link>
+            ) : (
+              s.title
+            )}
           </h3>
           <p className={`${compact ? 'text-sm' : 'text-base'} text-[#1A1A1A]/65 leading-relaxed`}>
             {compact ? s.short : s.long}
           </p>
+          {s.href && (
+            <Link
+              href={s.href}
+              className="inline-block mt-3 text-[10px] tracking-[0.2em] uppercase text-[#8B4545] border-b border-[#8B4545] pb-0.5 hover:opacity-60 transition-opacity"
+              style={sans}
+            >
+              Learn more →
+            </Link>
+          )}
         </article>
       ))}
     </div>

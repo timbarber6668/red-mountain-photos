@@ -67,12 +67,6 @@ export default function ContactPage() {
                   </a>
                 </div>
                 <div>
-                  <p className="text-xs text-[#1A1A1A]/60 uppercase tracking-[0.15em] mb-1">Email</p>
-                  <a href="mailto:tim@redmountainphotos.com" className="text-base text-[#1A1A1A] hover:text-[#8B4545] transition-colors">
-                    tim@redmountainphotos.com
-                  </a>
-                </div>
-                <div>
                   <p className="text-xs text-[#1A1A1A]/60 uppercase tracking-[0.15em] mb-1">Based In</p>
                   <p className="text-base text-[#1A1A1A]">Telluride, Colorado</p>
                 </div>

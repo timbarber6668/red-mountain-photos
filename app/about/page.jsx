@@ -28,7 +28,6 @@ const personSchema = {
   jobTitle: 'Architectural and Real Estate Photographer',
   image: 'https://redmountainphotos.com/images/tim-barber.jpg',
   url: 'https://redmountainphotos.com/about',
-  email: 'tim@redmountainphotos.com',
   telephone: '+1-970-670-0846',
   worksFor: { '@id': 'https://redmountainphotos.com/#business' },
   homeLocation: { '@type': 'Place', name: 'Telluride, Colorado' },
@@ -40,8 +39,37 @@ const personSchema = {
     'Drone and aerial photography',
     'Property video',
   ],
-  sameAs: ['https://redmountainweddingfilms.com'],
+  sameAs: ['https://instagram.com/redmountainphotos', 'https://facebook.com/redmountainphotos'],
 };
+
+const clients = [
+  {
+    title: 'Architects & interior designers',
+    body: 'Portfolio images that show the design as it was intended: the materials, the proportions and the light. Shot to your brief, for your website, award entries and publication.',
+  },
+  {
+    title: 'Builders',
+    body: 'The finished rooms and the craft inside them: joinery, stonework and finishes. Often shared with the architect and designer, so everyone splits the cost.',
+  },
+  {
+    title: 'Real estate brokers',
+    body: 'Photos, video and aerials for luxury listings, ready for MLS, print and social, and delivered in 8 to 10 days.',
+  },
+  {
+    title: 'Hospitality & luxury vacation rentals',
+    body: 'Hotels, lodges, owners and property managers. Galleries planned around the cover image and built for Airbnb, Vrbo and direct booking.',
+    href: '/vacation-rental-photography',
+  },
+];
+
+const craft = [
+  'Bracketed exposures and flash frames, blended by hand, so windows hold the view and rooms keep their true color.',
+  'Lighting set room by room on site, and every vertical straightened in the edit.',
+  'Every frame edited by me. No outsourced or automated batch editing.',
+  'FAA-certified drone pilot for aerial stills and video.',
+  'Photo and video on the same visit, with the video cut and graded by me as well.',
+  'One point of contact, from the first call to the final files.',
+];
 
 const steps = [
   {
@@ -106,7 +134,7 @@ export default function AboutPage() {
                 Living here shapes the work. I know which side of the canyon loses the sun first, when the aspens turn, and how short a twilight window is at this altitude. That knowledge travels with me, and I travel more every year.
               </p>
               <p>
-                Every shoot is planned around the light and the brief, and you work with me directly from the first call to the final files.
+                My work runs from new custom homes and design projects to luxury listings and vacation rentals. Every shoot is planned around the light and the brief, and you work with me directly from the first call to the final files.
               </p>
             </div>
 
@@ -127,14 +155,64 @@ export default function AboutPage() {
               >
                 Facebook
               </a>
-              <a
-                href="https://redmountainweddingfilms.com"
-                className="text-[#1A1A1A]/60 hover:text-[#8B4545] transition-colors"
-              >
-                Wedding films →
-              </a>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Who I work with */}
+      <section className="bg-white py-20 md:py-24 px-6 md:px-16 border-t border-black/10">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-14">
+            <p className="text-[11px] tracking-[0.24em] uppercase text-[#8B4545] mb-5" style={sans}>
+              Clients
+            </p>
+            <h2 className="text-4xl md:text-5xl font-light text-[#1A1A1A]" style={serif}>
+              Who I work with
+            </h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
+            {clients.map((c) => (
+              <div key={c.title} className="border-t border-[#1A1A1A] pt-6">
+                <h3 className="text-2xl md:text-3xl font-light mb-3 text-[#1A1A1A]" style={serif}>
+                  {c.href ? (
+                    <Link href={c.href} className="hover:text-[#8B4545] transition-colors">{c.title}</Link>
+                  ) : (
+                    c.title
+                  )}
+                </h3>
+                <p className="text-base text-[#1A1A1A]/70 leading-relaxed">{c.body}</p>
+                {c.href && (
+                  <Link
+                    href={c.href}
+                    className="inline-block mt-4 text-[10px] tracking-[0.2em] uppercase text-[#8B4545] border-b border-[#8B4545] pb-0.5 hover:opacity-60 transition-opacity"
+                    style={sans}
+                  >
+                    Vacation rental photography →
+                  </Link>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Craft */}
+      <section className="bg-[#1A1A1A] text-[#F5F3F0] py-20 md:py-24 px-6 md:px-16">
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-12">
+          <div className="md:col-span-2">
+            <p className="text-[11px] tracking-[0.24em] uppercase text-[#c98282] mb-5" style={sans}>
+              The work
+            </p>
+            <h2 className="text-4xl md:text-5xl font-light leading-tight" style={serif}>
+              What goes into every shoot
+            </h2>
+          </div>
+          <ul className="md:col-span-3 divide-y divide-white/10 border-y border-white/10">
+            {craft.map((c) => (
+              <li key={c} className="py-4 text-base text-[#F5F3F0]/80 leading-relaxed">{c}</li>
+            ))}
+          </ul>
         </div>
       </section>
 

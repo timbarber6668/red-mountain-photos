@@ -63,6 +63,8 @@ public/
 - **Project 4** is now "White Oak House" (Catherine Frank interior design), replacing Ironwood Estates. Images in `public/images/work/catherine-frank/` (2000px) and `/thumb` (800px). Projects can take `pair` (side-by-side hero for vertical images), `credit` and `gallery` (thumbnails with a lightbox).
 - **Testimonials removed**: they were placeholder quotes with unverifiable claims. Add back only with real, attributable quotes.
 - **Blog**: posts carry `date` (BlogPosting schema, sitemap). Newest first; home shows the first three. Three posts added: prep checklist, licensing, seasons.
+- **Oct 1 revisions (Tim):** turnaround is 8 to 10 days photo, about 2 weeks video, rush on availability. Every third party needs its own license; multiple licensees get a discount and cost sharing is encouraged. No deposit: payment on delivery for most shoots, travel or larger projects per the quote. Visible email removed site-wide (form plus phone only). No links to the wedding site from this site, or back (Tim wants each to read as a specialist). Hospitality is now "Hospitality & Luxury Vacation Rentals".
+- **Vacation rentals** are a large share of clients but kept out of the main nav: `/vacation-rental-photography` landing page (Service + FAQPage schema), linked from the services card, About and the footer. Researched post `vacation-rental-photography-revenue` has a `sources` array rendered as a Sources list; only cite figures traced to a primary source. Posts array order is display order, and the home page shows the first three, so keep those architecture-led.
 - `public/llms.txt` summarises the business for AI search engines.
 - Library JPEGs recompressed to q80 progressive (same dimensions), roughly 80% smaller.
 

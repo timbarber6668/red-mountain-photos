@@ -30,8 +30,8 @@ export default function SiteFooter() {
               </a>
             </li>
             <li>
-              <a href="mailto:tim@redmountainphotos.com" className="hover:text-[#c98282] transition-colors">
-                tim@redmountainphotos.com
+              <a href="/contact" className="hover:text-[#c98282] transition-colors">
+                Request a quote
               </a>
             </li>
             <li className="text-[#F5F3F0]/60">Telluride, Colorado</li>
@@ -66,11 +66,7 @@ export default function SiteFooter() {
             <li><Link href="/#faq" className="hover:text-[#c98282] transition-colors">FAQ</Link></li>
             <li><Link href="/contact" className="hover:text-[#c98282] transition-colors">Contact</Link></li>
             <li><Link href="/privacy" className="hover:text-[#c98282] transition-colors">Privacy</Link></li>
-            <li>
-              <a href="https://redmountainweddingfilms.com" className="hover:text-[#c98282] transition-colors">
-                Wedding Films <span aria-hidden="true">↗</span>
-              </a>
-            </li>
+            <li><Link href="/vacation-rental-photography" className="hover:text-[#c98282] transition-colors">Vacation Rentals</Link></li>
           </ul>
           <p className="text-xs text-[#F5F3F0]/40 leading-relaxed">
             Home base in Telluride. Regular work across the Colorado high country, and travel anywhere in the country.
@@ -82,7 +78,7 @@ export default function SiteFooter() {
           className="max-w-6xl mx-auto px-6 md:px-16 py-6 text-[11px] text-[#F5F3F0]/40 tracking-[0.1em]"
           style={{ fontFamily: "'Space Grotesk', sans-serif" }}
         >
-          © {new Date().getFullYear()} Red Mountain Media · Red Mountain Photography and Red Mountain Wedding Films · Telluride, Colorado
+          © {new Date().getFullYear()} Red Mountain Photography · Telluride, Colorado
         </div>
       </div>
     </footer>

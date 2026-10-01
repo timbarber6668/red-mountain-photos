@@ -1,6 +1,7 @@
 // Blog article data. Each post renders at /blog/<slug>.
 // Body sections: { heading (optional), paragraphs: [...] }
-// Newest first: the home page shows the first three.
+// Array order is display order. The home page shows the first three, so keep
+// those architecture-led; rental content is found through search and its own page.
 
 const posts = [
   {
@@ -24,8 +25,8 @@ const posts = [
       {
         heading: 'The whole house',
         paragraphs: [
-          'Turn on every light, including lamps and under-cabinet lights, and replace any dead bulbs. Matching bulbs help, since a single cool-white bulb in a room of warm ones shows up in the photos.',
-          'Open blinds and curtains, all to the same height. Turn off ceiling fans and TVs. Hide cords, chargers and remotes. Put away pet beds, bowls and toys.',
+          'Clean and stage every room as well as you can. Clear clutter off counters, tables and shelves. Hide cords, chargers and remotes. Put away pet beds, bowls and toys.',
+          'Replace any burned-out bulbs, and try to match them. A single cool-white bulb in a room of warm ones shows up in the photos. You do not need to turn the lights on before we arrive. We set the lighting room by room as we shoot.',
         ],
       },
       {
@@ -36,9 +37,15 @@ const posts = [
         ],
       },
       {
+        heading: 'Glass',
+        paragraphs: [
+          'If you only have time for one thing, clean the glass. Windows, glass doors, shower glass and mirrors, inside and out where you can reach. Fingerprints, water spots and dog-nose smudges catch the light and are the hardest thing to fix in editing. Clean glass is also what lets the view through, and in the mountains the view is often the point.',
+        ],
+      },
+      {
         heading: 'Bathrooms',
         paragraphs: [
-          'Toilet seats down. Clear out toiletries, razors, bath mats and shower caddies. Fresh folded towels if you have them, white if possible. Clean the mirrors and glass, since we will be shooting straight into them.',
+          'Toilet seats down. Clear out toiletries, razors, bath mats and shower caddies. Fresh folded towels if you have them, white if possible.',
         ],
       },
       {
@@ -51,13 +58,13 @@ const posts = [
         heading: 'Outside',
         paragraphs: [
           'Move cars out of the driveway, and off the street in front if you can. Put away hoses, tools, toys, and trash and recycling bins. Sweep the entry and the decks. In winter, shovel the walks and clear snow off outdoor furniture.',
-          'If the home has a hot tub, take the cover off and make sure the water is clear. If we are shooting twilight, turn on every exterior and landscape light, and check that they all work beforehand.',
+          'If the home has a hot tub, take the cover off and make sure the water is clear. If we are shooting twilight, check beforehand that every exterior and landscape light works.',
         ],
       },
       {
         heading: 'On the day',
         paragraphs: [
-          'We work room by room. It is easiest if the house is empty, or if everyone gathers in a room we have already finished. If something cannot be moved, just tell us. We can usually shoot around it or take it out in editing.',
+          'We work room by room, setting the lights and blinds as we go. It is easiest if the house is empty, or if everyone gathers in a room we have already finished. If something cannot be moved, just tell us. We can usually shoot around it or take it out in editing.',
           'For second homes and vacation rentals, a property manager or cleaner can handle almost all of this the day before. Feel free to send them this page.',
         ],
       },
@@ -163,6 +170,89 @@ const posts = [
           'If guests book your property year-round, shoot it twice: once in summer and once in winter. Guests booking a ski week want to see snow, and guests booking July want to see the deck.',
           'If you know a listing or launch is coming, call early. A little lead time is often the difference between the house at its best and the house in its worst week of the year.',
         ],
+      },
+    ],
+  },
+  {
+    slug: 'vacation-rental-photography-revenue',
+    category: 'Research',
+    date: '2026-10-01',
+    title: 'Do Better Photos Earn More? What the Research Says About Vacation Rental Photography',
+    excerpt:
+      'Owners and property managers ask whether professional photos actually pay for themselves. There is real data on it. Here is what it shows, and what it does not.',
+    image: '/images/actual/544A8798.jpg',
+    imageAlt:
+      'Luxury mountain vacation rental at twilight with a lit plunge pool, stone patio and aspen forest, Telluride, Colorado',
+    readTime: '6 min read',
+    body: [
+      {
+        paragraphs: [
+          'Owners and property managers ask us some version of the same question: will better photos actually earn more? It is a fair question, and it does not need a sales pitch. Researchers and the booking platforms have studied it. Here is what they found, with the caveats.',
+        ],
+      },
+      {
+        heading: 'The best study: about 9% more occupancy',
+        paragraphs: [
+          'The most careful work comes from researchers at Carnegie Mellon, published in Management Science in 2022. They followed 7,423 Airbnb properties for 16 months and compared demand before and after hosts switched from their own photos to photos taken by Airbnb’s professional photographers. Properties with professional photos had about 9% higher occupancy than comparable properties with host photos.',
+          'They also measured what made the professional images work: composition, color, and how clearly the subject of each photo stands out. Those are exactly the things a photographer controls on every frame, which is why a phone snapshot of the same room underperforms.',
+        ],
+      },
+      {
+        heading: 'Airbnb’s own numbers point the same way',
+        paragraphs: [
+          'Airbnb reports that listings using its professional photography service saw 19% more bookings and 21% higher host earnings over 2024 and 2025, comparing more than 14,700 listings with professional photos to more than 62,300 without.',
+          'Two caveats. Airbnb sells that service, and its figures are a comparison, not a controlled experiment. Hosts who invest in photos may also invest in other things. Even so, the direction matches the academic result.',
+        ],
+      },
+      {
+        heading: 'The cover photo does the most work',
+        paragraphs: [
+          'Research by Weiming Zhu of IESE Business School looked at which photos, in which order, drive bookings on Airbnb. The cover image had a much larger effect than any other photo. In the study’s model, a listing that switched to the best photo layout (the right room on the cover, the strongest images, in the right order) earned about 11% more bookings on average, or two to five more booked nights a year.',
+          'That result is about choosing and ordering photos well, not only shooting them well. It is why we plan the cover image before the shoot, and deliver a recommended order with every rental gallery.',
+        ],
+      },
+      {
+        heading: 'Most listings leave this on the table',
+        paragraphs: [
+          'A 2026 PriceLabs review of more than 10,000 short-term rental listings in nine cities found that almost 70% had poor images: blurry photos, bad lighting or a weak order. Only 12% of listings met its standard for a well-optimized listing, and those listings were 35% more likely to outperform their local market. Photos are one part of that score, alongside titles, descriptions and amenities.',
+          'A separate 2026 analysis by IntelliHost and Key Data of about 360,000 active US listings found that listings with the fullest galleries earned far more per available night than listings with only a handful of photos. The authors are clear that this is a correlation: better-run listings tend to have more photos. But it is consistent with what guests want, which is to see every room before they book.',
+        ],
+      },
+      {
+        heading: 'What it means for a luxury rental',
+        paragraphs: [
+          'In Telluride and Mountain Village, nightly rates are high, so small percentages are real money. As a simple illustration: if better photos lifted bookings by 9% at the same nightly rates, a home grossing $150,000 a year would earn about $13,500 more. Your numbers will differ, but the math is why professional photos usually pay for themselves quickly at this end of the market.',
+          'The research also tells you where to spend the effort: a cover image that stands out in search, a full gallery that shows every bedroom, bath and amenity, and photos that match the season guests are booking.',
+        ],
+      },
+      {
+        heading: 'How we shoot rentals',
+        paragraphs: [
+          'Every rental shoot starts with the cover image. We photograph every bedroom and bath, the kitchen, the living spaces, the hot tub, the views and the details guests ask about. We deliver the gallery sized for Airbnb, Vrbo and direct booking sites, with a recommended order, and we can add aerials, video and vertical cuts for social. For properties booked year-round, we recommend a summer set and a winter set.',
+          'If you own or manage a rental, send us the listing link. We will tell you honestly whether new photos are worth it.',
+        ],
+      },
+    ],
+    sources: [
+      {
+        label: 'Zhang, Lee, Singh and Srinivasan, “What Makes a Good Image? Airbnb Demand Analytics Leveraging Interpretable Image Features,” Management Science 68(8), 2022',
+        url: 'https://pubsonline.informs.org/doi/10.1287/mnsc.2021.4175',
+      },
+      {
+        label: 'Airbnb, Pro Photography program (figures for 2024 to 2025)',
+        url: 'https://www.airbnb.com/e/pro-photography',
+      },
+      {
+        label: 'Weiming Zhu, “Estimating and Exploiting the Impact of Photo Layout: A Structural Approach”',
+        url: 'https://hkubs.hku.hk/event/estimating-and-exploiting-the-impact-of-photo-layout-a-structural-approach',
+      },
+      {
+        label: 'PriceLabs listing optimization report, as reported by Short Term Rentalz, February 2026',
+        url: 'https://shorttermrentalz.com/news/pricelabs-standards-airbnb-listings/',
+      },
+      {
+        label: 'IntelliHost and Key Data, photo count and RevPAR study, 2026',
+        url: 'https://intellihost.co/data-studies/ins003-more-photos',
       },
     ],
   },

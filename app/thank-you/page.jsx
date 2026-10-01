@@ -62,8 +62,7 @@ export default function ThankYouPage() {
           <p className="text-sm text-[#1A1A1A]/60 mb-8 leading-relaxed">
             Need to reach us sooner? Call{' '}
             <a href="tel:+19706700846" className="text-[#8B4545] hover:opacity-60 transition-opacity">(970) 670-0846</a>
-            {' '}or email{' '}
-            <a href="mailto:tim@redmountainphotos.com" className="text-[#8B4545] hover:opacity-60 transition-opacity">tim@redmountainphotos.com</a>.
+.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

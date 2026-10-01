@@ -21,12 +21,13 @@ const services = [
   },
   {
     slug: 'hospitality',
-    title: 'Hospitality & Rentals',
+    title: 'Hospitality & Luxury Vacation Rentals',
+    href: '/vacation-rental-photography',
     image: '/images/actual/544A4778.jpg',
     imageAlt:
       'Steaming rooftop hot tub with lounge chairs overlooking forested mountain slopes, hospitality photography in Colorado',
-    short: 'Hotels, lodges and vacation rentals, shot for booking sites and ads.',
-    long: 'Photography and video for hotels, lodges, restaurants and vacation rentals. Rooms, amenities and the setting around them, delivered in the sizes booking sites and ads actually use.',
+    short: 'Hotels, lodges and luxury vacation rentals, shot for Airbnb, Vrbo and direct booking sites.',
+    long: 'Photography and video for hotels, lodges and luxury vacation rentals. Every bedroom, bath and amenity, a cover image planned to stand out in search, and files sized and ordered for Airbnb, Vrbo and direct booking sites.',
   },
   {
     slug: 'aerial',
