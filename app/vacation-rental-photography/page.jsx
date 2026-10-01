@@ -22,7 +22,7 @@ const serif = { fontFamily: "'Cormorant Garamond', serif" };
 const included = [
   ['A planned cover image', 'The first photo guests see in search results. We decide what it is before the shoot.'],
   ['The whole home', 'Every bedroom and bath, the kitchen and living spaces, plus the hot tub, the views and the details guests ask about.'],
-  ['Windows that show the view', 'Bracketed exposures and flash frames blended by hand, so the rooms and the view outside are both right.'],
+  ['Windows that show the view', 'Bracketed exposures utilizing natural light mixed with flash frames, blended by hand, so windows hold the view and rooms keep their true color.'],
   ['Ready to upload', 'Files sized for Airbnb, Vrbo and direct booking sites, with a recommended photo order.'],
   ['Optional extras', 'Drone aerials, twilight exteriors, a walkthrough video and vertical cuts for social.'],
   ['Both seasons', 'For homes booked year-round, a summer set and a winter set, so guests see the season they are booking.'],
