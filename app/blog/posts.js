@@ -1,9 +1,174 @@
 // Blog article data. Each post renders at /blog/<slug>.
 // Body sections: { heading (optional), paragraphs: [...] }
+// Newest first: the home page shows the first three.
 
 const posts = [
   {
+    slug: 'preparing-your-home-for-a-photo-shoot',
+    category: 'Guide',
+    date: '2026-09-30',
+    title: 'Preparing Your Home for a Photo Shoot: A Room-by-Room Checklist',
+    excerpt:
+      'Twenty minutes of prep the day before saves an hour on site and shows in every frame. Here is what to do in each room, and outside.',
+    image: '/images/actual/544A5215.jpg',
+    imageAlt:
+      'Clean modern kitchen with cleared counters, white cabinetry and pendant lights, ready for a real estate photo shoot',
+    readTime: '4 min read',
+    body: [
+      {
+        paragraphs: [
+          'The best thing you can do for your listing photos happens before we arrive. A camera sees everything: the stack of mail, the dish rack, the one bulb that burned out last winter. We can fix some of it in editing, but a clean, ready house always photographs better and the shoot goes faster.',
+          'Here is the checklist we send to homeowners, agents and property managers. Most of it takes an afternoon.',
+        ],
+      },
+      {
+        heading: 'The whole house',
+        paragraphs: [
+          'Turn on every light, including lamps and under-cabinet lights, and replace any dead bulbs. Matching bulbs help, since a single cool-white bulb in a room of warm ones shows up in the photos.',
+          'Open blinds and curtains, all to the same height. Turn off ceiling fans and TVs. Hide cords, chargers and remotes. Put away pet beds, bowls and toys.',
+        ],
+      },
+      {
+        heading: 'Kitchen',
+        paragraphs: [
+          'Clear the counters almost completely. One or two simple things is plenty: a bowl of lemons, a cutting board, a vase. Put away the dish soap, sponges, towels on the oven handle, and everything on the fridge door.',
+          'Wipe down stainless steel and stone. Fingerprints and water spots show up in a well-lit photo.',
+        ],
+      },
+      {
+        heading: 'Bathrooms',
+        paragraphs: [
+          'Toilet seats down. Clear out toiletries, razors, bath mats and shower caddies. Fresh folded towels if you have them, white if possible. Clean the mirrors and glass, since we will be shooting straight into them.',
+        ],
+      },
+      {
+        heading: 'Bedrooms',
+        paragraphs: [
+          'Make the beds tight and smooth, with the pillows fluffed. Clear the nightstands down to a lamp and maybe a book. Close the closet doors and make sure nothing is peeking out from under the bed.',
+        ],
+      },
+      {
+        heading: 'Outside',
+        paragraphs: [
+          'Move cars out of the driveway, and off the street in front if you can. Put away hoses, tools, toys, and trash and recycling bins. Sweep the entry and the decks. In winter, shovel the walks and clear snow off outdoor furniture.',
+          'If the home has a hot tub, take the cover off and make sure the water is clear. If we are shooting twilight, turn on every exterior and landscape light, and check that they all work beforehand.',
+        ],
+      },
+      {
+        heading: 'On the day',
+        paragraphs: [
+          'We work room by room. It is easiest if the house is empty, or if everyone gathers in a room we have already finished. If something cannot be moved, just tell us. We can usually shoot around it or take it out in editing.',
+          'For second homes and vacation rentals, a property manager or cleaner can handle almost all of this the day before. Feel free to send them this page.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'photo-licensing-builders-architects-designers',
+    category: 'Insight',
+    date: '2026-09-30',
+    title: 'One Shoot, Several Companies: How Photo Licensing Works',
+    excerpt:
+      'The builder, the architect and the designer all want the photos of a finished home. Here is how licensing works, and why sorting it out before the shoot saves everyone money.',
+    image: '/images/work/catherine-frank/544A5611.jpg',
+    imageAlt:
+      'White oak kitchen with stone backsplash and brass fixtures, photographed for an interior designer in Telluride, Colorado',
+    readTime: '4 min read',
+    body: [
+      {
+        paragraphs: [
+          'A finished house usually has more than one company that wants to show it off. The builder, the architect, the interior designer, the cabinet maker, the listing agent. Each of them wants the photos, and most assume they can ask for a copy.',
+          'That is a reasonable assumption, and it is also where a lot of confusion starts. Here is how licensing works on our shoots, in plain terms.',
+        ],
+      },
+      {
+        heading: 'What a license covers',
+        paragraphs: [
+          'The photographer keeps the copyright. The client who books the shoot gets a license to use the images for a purpose. On our standard license, that means the hiring client can use the images to market that one property, in any format: MLS, website, print, social media.',
+          'The format does not matter. A brochure and a website are the same license. What matters is who is using the images, and for what.',
+        ],
+      },
+      {
+        heading: 'When someone else wants the photos',
+        paragraphs: [
+          'Say a broker books the shoot to list a home. The interior designer who did the house sees the photos and wants them for their portfolio. That is a different company using the images to market its own business, so it needs its own license. The same goes for the builder, the architect and any supplier.',
+          'An additional license costs a fraction of the original shoot. It is always far less than hiring a second photographer to shoot the same house.',
+        ],
+      },
+      {
+        heading: 'Why it pays to plan it up front',
+        paragraphs: [
+          'When everyone talks before the shoot, two good things happen. First, the parties can split the cost, so each one pays a share instead of the whole thing. Second, the shot list covers what each of them actually needs.',
+          'A builder wants the stonework and the joinery. A designer wants the styled vignettes and the light in the living room. An architect wants the full elevation at the right time of day. One well-planned shoot can deliver all of it. A shoot planned for one party usually leaves the others short.',
+        ],
+      },
+      {
+        heading: 'Bigger uses',
+        paragraphs: [
+          'Some uses go beyond a single property: company-wide advertising across many projects, publication in a book, or reselling the images. Those are quoted separately, case by case.',
+          'When you ask for a quote, tell us who else might want the images. One sentence up front saves an awkward conversation later, and usually saves money too.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'best-season-to-photograph-a-mountain-home',
+    category: 'Guide',
+    date: '2026-09-30',
+    title: 'When to Photograph a Mountain Home: A Season-by-Season Guide',
+    excerpt:
+      'In the San Juans, the season you shoot in changes the photos as much as anything else. Here is how we think about timing a shoot through the year.',
+    image: '/images/work/catherine-frank/544A5606-wide.jpg',
+    imageAlt:
+      'Gold aspens and evergreens framed by a large window with the San Juan Mountains beyond, fall in Telluride',
+    readTime: '5 min read',
+    body: [
+      {
+        paragraphs: [
+          'In the mountains, the time of year you shoot changes a property as much as the time of day. The same deck looks completely different under fresh snow, in July green, or with the aspens turning gold behind it. A listing that goes live in summer with photos from March is selling the wrong house.',
+          'Here is how we think about timing a shoot through the year around Telluride.',
+        ],
+      },
+      {
+        heading: 'Summer',
+        paragraphs: [
+          'Late June through August gives you green hillsides, long days and decks you can actually stand on. It is the easiest season for exteriors, gardens and outdoor living spaces.',
+          'Two things to plan around. Afternoon thunderstorms roll in most days in July and August, so we schedule exteriors and drone work for the morning. And the days are long: in late June, twilight does not arrive until after 9 PM.',
+        ],
+      },
+      {
+        heading: 'Fall',
+        paragraphs: [
+          'For two or three weeks, usually in the second half of September, the aspens turn and the whole valley goes gold. It is the most photogenic stretch of the year, and every window becomes a painting.',
+          'The timing moves a little every year, and our calendar fills fast. If you have a property that would look great in fall color, get in touch in August.',
+        ],
+      },
+      {
+        heading: 'Winter',
+        paragraphs: [
+          'Snow makes everything look clean, and a lit home against fresh snow at twilight is hard to beat. Winter is also when ski access tells its own story, with the run right outside the window.',
+          'It takes more prep. Walks and decks need shoveling, and outdoor furniture needs clearing. Days are short, with twilight around 5 PM in December, and cold and wind can limit drone flights. A fire in the fireplace helps the interiors.',
+        ],
+      },
+      {
+        heading: 'Mud season',
+        paragraphs: [
+          'April, May and November are the hardest months for exteriors. The snow is melting or not here yet, the aspens are bare and the ground is brown. Interiors still photograph well.',
+          'If a listing has to launch during mud season, we shoot the interiors now and plan the exteriors for when they will look best, or use earlier exterior images as long as they still represent the property honestly.',
+        ],
+      },
+      {
+        heading: 'For rentals and hospitality',
+        paragraphs: [
+          'If guests book your property year-round, shoot it twice: once in summer and once in winter. Guests booking a ski week want to see snow, and guests booking July want to see the deck.',
+          'If you know a listing or launch is coming, call early. A little lead time is often the difference between the house at its best and the house in its worst week of the year.',
+        ],
+      },
+    ],
+  },
+  {
     slug: 'golden-hour-mountain-light',
+    date: '2026-09-24',
     category: 'Guide',
     title: 'The Golden Hour: Capturing Mountain Light in Real Estate Photography',
     excerpt:
@@ -44,6 +209,7 @@ const posts = [
   },
   {
     slug: 'drone-photography-luxury-marketing',
+    date: '2026-09-24',
     category: 'Strategy',
     title: 'Drone Photography: When to Use Aerial Shots in Luxury Marketing',
     excerpt:
@@ -83,6 +249,7 @@ const posts = [
   },
   {
     slug: 'material-craft-architectural-photography',
+    date: '2026-09-24',
     category: 'Insight',
     title: 'Material & Craft: Highlighting Quality in Architectural Photography',
     excerpt:
@@ -122,6 +289,7 @@ const posts = [
   },
   {
     slug: 'cinematic-video-real-estate-marketing',
+    date: '2026-09-24',
     category: 'Trend',
     title: 'The Rise of Cinematic Video in Real Estate Marketing',
     excerpt:
@@ -161,6 +329,7 @@ const posts = [
   },
   {
     slug: 'photography-packages-explained',
+    date: '2026-09-24',
     category: 'Guide',
     title: 'Comprehensive Photography Packages: What’s Included & Why',
     excerpt:

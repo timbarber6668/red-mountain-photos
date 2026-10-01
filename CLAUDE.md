@@ -1,9 +1,9 @@
-# Red Mountain Photos — Mockup Site
+# Red Mountain Photos : Mockup Site
 
 ## Stack
 - Next.js 14, React 18, TypeScript, Tailwind CSS
 - Framer Motion (hero animations + panel arrow rotation)
-- Fonts: Space Grotesk (UI/headlines), Cormorant Garamond (CTA/display) — Google Fonts in `app/layout.jsx`
+- Fonts: Space Grotesk (UI/headlines), Cormorant Garamond (CTA/display) : Google Fonts in `app/layout.jsx`
 
 ## Dev Server
 ```
@@ -28,7 +28,7 @@ app/
   robots.js                         ← /robots.txt
   about/page.jsx                    ← About page (bio, service images, process)
   contact/page.jsx                  ← Contact page (server, metadata)
-  contact/ContactForm.jsx           ← Client form — submits via mailto: link
+  contact/ContactForm.jsx           ← Client form : submits via mailto: link
   components/
     RedMountainMagazineStack.tsx    ← MAIN home page component (all home sections)
     SiteHeader.jsx                  ← global nav: Work (/#work), About, Contact
@@ -52,6 +52,20 @@ public/
       544A6048.jpg  ← Contact page sidebar (kitchen, resized to 1600px)
 ```
 
+## Launch polish (Sept 30, 2026, branch `launch-polish`)
+- **Sticky header** (`SiteHeader.jsx`, client): translucent cream with blur, Contact is a solid red button on every page. Height lives in `--header-h` (globals.css: 56px mobile, 64px md+). Magazine-stack bars use `--bar-h` (46/56px) and offset by the header; the scroll/observer math reads both vars, so change heights only in globals.css.
+- **FAQ** is a native `<details>` accordion (answers stay in the HTML for SEO/AI search). Each item has `id="faq-<id>"` and `data-faq`; opening one fires `faq_open` via `lib/track.js`. Other events: `project_open`, `gallery_open`, `contact_submit`. CTAs carry `data-cta` for heatmaps.
+- **Analytics**: `NEXT_PUBLIC_GA_ID` (GA4) and `NEXT_PUBLIC_CLARITY_ID` (Microsoft Clarity heatmaps). Both off until set.
+- **Contact form** posts to `app/api/contact/route.js`, which sends via Resend. Needs `RESEND_API_KEY` in the Vercel project (Tim adds it). Without it the route returns 503 and the form falls back to the old mailto behavior. Optional `CONTACT_TO`, `CONTACT_FROM`.
+- **Services** data is in `lib/services.js`, rendered by `components/ServicesGrid.jsx` (compact on home, full on About).
+- **Headshot**: `public/images/tim-barber.jpg` (Tim.avif is retired).
+- **Favicon**: `app/icon.png`, `app/apple-icon.png`, `app/favicon.ico`, generated from logo.png.
+- **Project 4** is now "White Oak House" (Catherine Frank interior design), replacing Ironwood Estates. Images in `public/images/work/catherine-frank/` (2000px) and `/thumb` (800px). Projects can take `pair` (side-by-side hero for vertical images), `credit` and `gallery` (thumbnails with a lightbox).
+- **Testimonials removed**: they were placeholder quotes with unverifiable claims. Add back only with real, attributable quotes.
+- **Blog**: posts carry `date` (BlogPosting schema, sitemap). Newest first; home shows the first three. Three posts added: prep checklist, licensing, seasons.
+- `public/llms.txt` summarises the business for AI search engines.
+- Library JPEGs recompressed to q80 progressive (same dimensions), roughly 80% smaller.
+
 ## Launch Audit (completed Sept 24, 2026)
 Custom 404 (`app/not-found.jsx`), thank-you page (`app/thank-you/`, noindex, form redirects here 800ms after the mailto fires), privacy policy (`app/privacy/`), breadcrumbs (`components/Breadcrumbs.jsx`, visual + BreadcrumbList schema, on about/contact/blog/article/privacy), sticky mobile CTA (`components/StickyMobileCTA.jsx`, Call + Get a Quote, hidden on /contact and /thank-you, body has pb-[56px] md:pb-0 so the footer clears it), FAQPage schema (FAQ copy now lives in the `faqs` array at the top of RedMountainMagazineStack so schema and visible text cannot drift), Analytics component (`components/Analytics.jsx`, renders nothing until NEXT_PUBLIC_GA_ID is set).
 
@@ -60,24 +74,23 @@ Fixed: og:image was a PORTRAIT photo declared as 1200x630 and would have cropped
 Schema upgraded from LocalBusiness to ProfessionalService with hasOfferCatalog, founder, and areaServed including Country: United States (see travel positioning below).
 
 ## Contact Info (confirmed by Tim, July 2026)
-- Phone: (970) 670-0846 — contact page, footer, schema (`tel:+19706700846`)
-- Email: tim@redmountainphotos.com — form mailto, footer, contact page, schema
+- Phone: (970) 670-0846 : contact page, footer, schema (`tel:+19706700846`)
+- Email: tim@redmountainphotos.com : form mailto, footer, contact page, schema
 
 ## Known Placeholders (need real data from Tim before launch)
-- Testimonial quotes are placeholder copy with anonymous attributions
 - Confirm social handles are Tim's (instagram/facebook.com/redmountainphotos)
 
 ## Page Sections (top to bottom)
 
 ### 1. Hero Section
-- Layout: `flex-col md:flex-row` — stacked on mobile, side-by-side on desktop
+- Layout: `flex-col md:flex-row` : stacked on mobile, side-by-side on desktop
 - **Text column** (40% / `md:w-2/5`), off-white `#F5F3F0` background, `justify-between`
   - **Top:** empty spacer (pushes content to center)
   - **Middle:** logo + headline group (Framer Motion fade-in)
     - Logo: `/images/logo.png`, height = `clamp(32px, 3.8vw, 56px)`
     - Headline: Space Grotesk uppercase, tight tracking `-0.03em`, leading `0.9`
-      - Line 1: "RED MOUNTAIN" — `fontWeight: 500`, `text-[#1A1A1A]`
-      - Line 2: "PHOTOGRAPHY" — `fontWeight: 300`, `text-[#8B4545]`
+      - Line 1: "RED MOUNTAIN" : `fontWeight: 500`, `text-[#1A1A1A]`
+      - Line 2: "PHOTOGRAPHY" : `fontWeight: 300`, `text-[#8B4545]`
       - Font size: `text-[9vw] md:text-[3.8vw]`
   - **Bottom:** tagline (tiny uppercase) + "VIEW WORK →" outlined button
 - **Image column** (60% / `md:w-3/5`): bedroom photo `544A5593.jpg`, `object-cover`
@@ -108,7 +121,7 @@ Schema upgraded from LocalBusiness to ProfessionalService with hasOfferCatalog, 
 - Font: Space Grotesk, `tracking-[0.22em]` uppercase
 
 #### Expandable Project Panels
-- State: `expandedId: number | null` — only one panel open at a time
+- State: `expandedId: number | null` : only one panel open at a time
 - Click a bar → `toggle(id)` sets/clears `expandedId`
 - Panel renders in document flow between bar and image (pushes content down)
 - Panel uses Framer Motion `AnimatePresence` with `height: 0 → 'auto'` animation
@@ -125,7 +138,7 @@ Schema upgraded from LocalBusiness to ProfessionalService with hasOfferCatalog, 
 | 1 | Galloping Goose Chalet | Drone Series | DJI_0547.jpg | Mountain Village, CO |
 | 2 | Sky High at the Plaza | Interior Study | 544A8777.jpg | Mountain Village, CO |
 | 3 | Mountainside Retreat | Renovation Series | 544A8388.jpg | Telluride, CO |
-| 4 | Ironwood Estates | Interior Design | 544A1449.jpg | Telluride, CO |
+| 4 | White Oak House | Interior Design | work/catherine-frank/544A5606 + 5601 (pair) | Telluride, CO |
 | 5 | Twilight Approach | Golden Hour | 544A1850.jpg | Telluride, CO |
 | 6 | Weathered Stone | Detail Focus | 544A3825.jpg | Ouray, CO |
 
@@ -139,11 +152,10 @@ Each expanded panel's "Start a Project Like This →" links to `/contact`.
 - First 3 posts from `app/blog/posts.js` as image cards → link to /blog/<slug>; "View All Articles" → /blog
 - Blog: posts.js (content data), blog/page.jsx (index), blog/[slug]/page.jsx (article template, SSG)
 
-### 8. Testimonials (off-white bg)
-- 3 quotes with anonymous role attributions — **placeholder copy, replace with real client quotes**
+### 8. Closing CTA (dark): Get a Quote + phone. Testimonials were removed Sept 30 (placeholders).
 
 ### 9. Footer (SiteFooter)
-- Last section on every page; no separate CTA panel (removed at Tim's request — he doesn't want a "full portfolio" promise)
+- Last section on every page; no separate CTA panel (removed at Tim's request : he doesn't want a "full portfolio" promise)
 
 ## Copy & Layout Rules (from Tim)
 - **No em dashes anywhere.** Use commas, colons, or periods instead.

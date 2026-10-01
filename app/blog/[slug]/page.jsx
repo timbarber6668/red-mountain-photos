@@ -17,8 +17,12 @@ export function generateMetadata({ params }) {
       canonical: `/blog/${post.slug}`,
     },
     openGraph: {
+      type: 'article',
       title: post.title,
       description: post.excerpt,
+      url: `https://redmountainphotos.com/blog/${post.slug}`,
+      publishedTime: post.date,
+      authors: ['Tim Barber'],
       images: [{ url: `https://redmountainphotos.com${post.image}` }],
     },
   };
@@ -30,10 +34,25 @@ export default function BlogPostPage({ params }) {
 
   const others = posts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt,
+    image: `https://redmountainphotos.com${post.image}`,
+    datePublished: post.date,
+    dateModified: post.date,
+    mainEntityOfPage: `https://redmountainphotos.com/blog/${post.slug}`,
+    author: { '@type': 'Person', '@id': 'https://redmountainphotos.com/#tim-barber', name: 'Tim Barber', url: 'https://redmountainphotos.com/about' },
+    publisher: { '@id': 'https://redmountainphotos.com/#business' },
+  };
+  const published = new Date(`${post.date}T12:00:00`).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+
   return (
     <div className="bg-[#F5F3F0] min-h-screen">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       {/* Hero */}
-      <section className="bg-[#1A1A1A] text-[#F5F3F0] py-20 px-10 md:px-16">
+      <section className="bg-[#1A1A1A] text-[#F5F3F0] py-16 md:py-20 px-6 md:px-16">
         <div className="max-w-4xl mx-auto">
           <div className="mb-6 text-[#F5F3F0]">
             <Breadcrumbs trail={[{ name: 'Resources', href: '/blog' }]} current={post.title} />
@@ -50,11 +69,14 @@ export default function BlogPostPage({ params }) {
           >
             {post.title}
           </h1>
+          <p className="mt-6 text-sm text-[#F5F3F0]/60" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+            By <a href="/about" className="text-[#F5F3F0] hover:text-[#c98282] transition-colors">Tim Barber</a> · <time dateTime={post.date}>{published}</time>
+          </p>
         </div>
       </section>
 
       {/* Feature image */}
-      <section className="px-10 md:px-16 -mb-10">
+      <section className="px-6 md:px-16 -mb-10">
         <div className="max-w-4xl mx-auto">
           <img
             src={post.image}
@@ -65,7 +87,7 @@ export default function BlogPostPage({ params }) {
       </section>
 
       {/* Body */}
-      <article className="pb-24 px-10 md:px-16">
+      <article className="pb-24 px-6 md:px-16">
         <div className="max-w-3xl mx-auto">
           {post.body.map((section, i) => (
             <div key={i} className="mb-10">
@@ -86,22 +108,23 @@ export default function BlogPostPage({ params }) {
           ))}
 
           <div className="border-t border-black/10 pt-8 mt-12">
-            <p className="text-sm text-[#1A1A1A]/60 mb-4">
-              Red Mountain Photography provides luxury real estate, architectural, drone, and video coverage across Telluride and the Colorado high country.
+            <p className="text-base text-[#1A1A1A]/70 mb-6">
+              Red Mountain Photography shoots architecture, interiors and real estate from a home base in Telluride, Colorado, and travels nationwide. Have a property in mind?
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 text-xs tracking-[0.2em] uppercase text-[#8B4545] border-b border-[#8B4545] pb-0.5 hover:opacity-60 transition-opacity"
+              data-cta="article-quote"
+              className="inline-flex items-center gap-3 px-8 py-3.5 bg-[#8B4545] text-white text-[10px] tracking-[0.2em] uppercase hover:bg-[#1A1A1A] transition-colors duration-300"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
-              Start a Conversation →
+              Get a Quote <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>
       </article>
 
       {/* More articles */}
-      <section className="bg-white border-t border-black/10 py-20 px-10 md:px-16">
+      <section className="bg-white border-t border-black/10 py-16 md:py-20 px-6 md:px-16">
         <div className="max-w-6xl mx-auto">
           <h2
             className="text-3xl font-light mb-10 text-[#1A1A1A]"

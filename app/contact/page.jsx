@@ -1,10 +1,9 @@
-import Link from 'next/link';
 import ContactForm from './ContactForm';
 import Breadcrumbs from '../components/Breadcrumbs';
 
 export const metadata = {
   title: 'Contact Red Mountain Photography | Telluride Real Estate & Architecture Photography',
-  description: 'Get in touch with Red Mountain Photography. Based in Telluride, Colorado. Request a quote for your luxury real estate, architectural, drone, or video project.',
+  description: 'Request a quote for real estate, architectural, interior, drone or video photography. Based in Telluride, Colorado, working nationwide. Replies within a day.',
   alternates: {
     canonical: '/contact',
   },
@@ -14,7 +13,7 @@ export default function ContactPage() {
   return (
     <div className="bg-[#F5F3F0] min-h-screen">
       {/* Hero */}
-      <section className="bg-[#1A1A1A] text-[#F5F3F0] py-24 px-10 md:px-16">
+      <section className="bg-[#1A1A1A] text-[#F5F3F0] py-20 md:py-24 px-6 md:px-16">
         <div className="max-w-6xl mx-auto">
           <div className="mb-8 text-[#F5F3F0]">
             <Breadcrumbs current="Contact" />
@@ -26,17 +25,17 @@ export default function ContactPage() {
             Get in Touch
           </h1>
           <p className="text-lg text-[#F5F3F0]/70 max-w-2xl">
-            Ready to discuss your photography project? Wherever the property is, we'd love to hear about it. Tell us the details below, or call us at{' '}
+            Tell us about the property and what you need, wherever it is. You will hear back within a day. Or call{' '}
             <a href="tel:+19706700846" className="text-[#F5F3F0] underline decoration-[#8B4545] underline-offset-4 hover:text-[#c98282] transition-colors">
               (970) 670-0846
             </a>
-            . We'll respond within 24 hours.
+            .
           </p>
         </div>
       </section>
 
       {/* Contact Form + Info */}
-      <section className="py-24 px-10 md:px-16">
+      <section className="py-20 md:py-24 px-6 md:px-16">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16">
           {/* Form */}
           <div>
@@ -88,7 +87,7 @@ export default function ContactPage() {
                 Where We Work
               </h2>
               <p className="text-base text-[#1A1A1A]/70 leading-relaxed">
-                Home base is Telluride, Colorado, and we work constantly across the Colorado high country. We also travel nationwide, so if your property sits outside this region, say where it is and we will work out the logistics with you.
+                Telluride is home base, and most of our work is in the Colorado high country. We also travel nationwide. Tell us where the property is and we will work out the logistics.
               </p>
             </div>
 
@@ -100,34 +99,13 @@ export default function ContactPage() {
                 Response Time
               </h2>
               <p className="text-base text-[#1A1A1A]/70 leading-relaxed">
-                We typically respond to inquiries within 24 hours. For rush projects or urgent timelines, mention it in your message and we'll prioritize getting back to you.
+                Every inquiry gets a reply within a day. If your timeline is tight, say so in the message or call.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-[#1A1A1A] text-[#F5F3F0] py-24 px-10 md:px-16">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2
-            className="text-4xl md:text-5xl font-light mb-6 leading-tight"
-            style={{ fontFamily: "'Cormorant Garamond', serif" }}
-          >
-            Let's Create Something Remarkable
-          </h2>
-          <p className="text-base text-[#F5F3F0]/70 mb-8 max-w-2xl mx-auto">
-            Whether you're a broker marketing luxury listings, an architect building your portfolio, or a homeowner documenting a custom build, we're ready to bring your vision to life.
-          </p>
-          <Link
-            href="/#work"
-            className="inline-flex items-center gap-3 px-10 py-4 bg-[#8B4545] text-white text-xs tracking-[0.2em] uppercase hover:bg-[#F5F3F0] hover:text-[#1A1A1A] transition-colors duration-300"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-          >
-            View Our Work <span>→</span>
-          </Link>
-        </div>
-      </section>
     </div>
   );
 }

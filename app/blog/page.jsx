@@ -5,7 +5,7 @@ import Breadcrumbs from '../components/Breadcrumbs';
 export const metadata = {
   title: 'Photography Resources | Red Mountain Photography | Telluride',
   description:
-    'Guides and insights on real estate, architectural, drone, and video marketing for luxury mountain properties in Telluride and the Colorado high country.',
+    'Practical guides on real estate, architectural, drone and video photography for mountain homes and design projects, from Telluride photographer Tim Barber.',
   alternates: {
     canonical: '/blog',
   },
@@ -15,7 +15,7 @@ export default function BlogIndexPage() {
   return (
     <div className="bg-[#F5F3F0] min-h-screen">
       {/* Hero */}
-      <section className="bg-[#1A1A1A] text-[#F5F3F0] py-24 px-10 md:px-16">
+      <section className="bg-[#1A1A1A] text-[#F5F3F0] py-20 md:py-24 px-6 md:px-16">
         <div className="max-w-6xl mx-auto">
           <div className="mb-8 text-[#F5F3F0]">
             <Breadcrumbs current="Photography Resources" />
@@ -27,13 +27,13 @@ export default function BlogIndexPage() {
             Photography Resources
           </h1>
           <p className="text-lg text-[#F5F3F0]/70 max-w-2xl">
-            Guides, strategy, and insights on marketing luxury properties in the Colorado high country, from the team behind the camera.
+            Practical guides on photographing, preparing and marketing mountain homes and design projects.
           </p>
         </div>
       </section>
 
       {/* Article grid */}
-      <section className="py-24 px-10 md:px-16">
+      <section className="py-20 md:py-24 px-6 md:px-16">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {posts.map((post) => (
             <article key={post.slug} className="bg-white border border-black/5 flex flex-col">
@@ -71,7 +71,7 @@ export default function BlogIndexPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[#1A1A1A] text-[#F5F3F0] py-24 px-10 md:px-16">
+      <section className="bg-[#1A1A1A] text-[#F5F3F0] py-20 md:py-24 px-6 md:px-16">
         <div className="max-w-4xl mx-auto text-center">
           <h2
             className="text-4xl md:text-5xl font-light mb-6 leading-tight"
@@ -80,14 +80,14 @@ export default function BlogIndexPage() {
             Planning a Shoot?
           </h2>
           <p className="text-base text-[#F5F3F0]/70 mb-8 max-w-2xl mx-auto">
-            Tell us about your property or project and we'll recommend the right coverage, usually within 24 hours.
+            Tell us about the property and we will recommend the right coverage. You will hear back within a day.
           </p>
           <Link
             href="/contact"
             className="inline-flex items-center gap-3 px-10 py-4 bg-[#8B4545] text-white text-xs tracking-[0.2em] uppercase hover:bg-[#F5F3F0] hover:text-[#1A1A1A] transition-colors duration-300"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
           >
-            Get in Touch <span>→</span>
+            Get a Quote <span aria-hidden="true">→</span>
           </Link>
         </div>
       </section>

@@ -10,7 +10,7 @@ export const metadata = {
 export default function ThankYouPage() {
   return (
     <div className="bg-[#F5F3F0]">
-      <section className="bg-[#1A1A1A] text-[#F5F3F0] py-28 px-10 md:px-16">
+      <section className="bg-[#1A1A1A] text-[#F5F3F0] py-28 px-6 md:px-16">
         <div className="max-w-3xl mx-auto text-center">
           <p
             className="text-xs tracking-[0.2em] uppercase text-[#c98282] mb-6"
@@ -30,7 +30,7 @@ export default function ThankYouPage() {
         </div>
       </section>
 
-      <section className="py-20 px-10 md:px-16">
+      <section className="py-20 px-6 md:px-16">
         <div className="max-w-3xl mx-auto text-center">
           <h2
             className="text-2xl md:text-3xl font-light mb-8 text-[#1A1A1A]"

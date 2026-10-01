@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function SiteFooter() {
   return (
     <footer className="bg-[#111111] text-[#F5F3F0]">
-      <div className="max-w-6xl mx-auto px-10 md:px-16 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+      <div className="max-w-6xl mx-auto px-6 md:px-16 py-16 grid grid-cols-1 md:grid-cols-3 gap-12">
         {/* Brand */}
         <div>
           <div className="flex items-center gap-3 mb-4">
@@ -16,7 +16,7 @@ export default function SiteFooter() {
             </span>
           </div>
           <p className="text-sm text-[#F5F3F0]/50 leading-relaxed max-w-xs" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
-            Luxury real estate, architectural, and aerial photography. Based in Telluride, Colorado and available for projects nationwide.
+            Architectural, interior and real estate photography and video. Based in Telluride, Colorado. Working nationwide.
           </p>
         </div>
 
@@ -66,18 +66,23 @@ export default function SiteFooter() {
             <li><Link href="/#faq" className="hover:text-[#c98282] transition-colors">FAQ</Link></li>
             <li><Link href="/contact" className="hover:text-[#c98282] transition-colors">Contact</Link></li>
             <li><Link href="/privacy" className="hover:text-[#c98282] transition-colors">Privacy</Link></li>
+            <li>
+              <a href="https://redmountainweddingfilms.com" className="hover:text-[#c98282] transition-colors">
+                Wedding Films <span aria-hidden="true">↗</span>
+              </a>
+            </li>
           </ul>
           <p className="text-xs text-[#F5F3F0]/40 leading-relaxed">
-            Home base in Telluride. Regular work throughout the Colorado high country and travel nationwide for projects anywhere in the country.
+            Home base in Telluride. Regular work across the Colorado high country, and travel anywhere in the country.
           </p>
         </div>
       </div>
       <div className="border-t border-white/10">
         <div
-          className="max-w-6xl mx-auto px-10 md:px-16 py-6 text-[11px] text-[#F5F3F0]/40 tracking-[0.1em]"
+          className="max-w-6xl mx-auto px-6 md:px-16 py-6 text-[11px] text-[#F5F3F0]/40 tracking-[0.1em]"
           style={{ fontFamily: "'Space Grotesk', sans-serif" }}
         >
-          © {new Date().getFullYear()} Red Mountain Photography · Telluride, Colorado
+          © {new Date().getFullYear()} Red Mountain Media · Red Mountain Photography and Red Mountain Wedding Films · Telluride, Colorado
         </div>
       </div>
     </footer>

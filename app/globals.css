@@ -2,8 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Height of the sticky site header. The magazine-stack bars and in-page
+   anchors offset by this so nothing hides underneath the header. */
+:root {
+  --header-h: 56px;
+  --bar-h: 46px;
+}
+@media (min-width: 768px) {
+  :root {
+    --header-h: 64px;
+    --bar-h: 56px;
+  }
+}
+
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
 }
 
 body {
@@ -13,4 +27,25 @@ body {
 
 body::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Edge */
+}
+
+/* FAQ accordion: native <details>, so answers stay in the HTML for search
+   engines and work without JavaScript. */
+.faq-item summary {
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+.faq-item .faq-mark {
+  transition: transform 0.3s ease;
+}
+.faq-item[open] .faq-mark {
+  transform: rotate(45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }

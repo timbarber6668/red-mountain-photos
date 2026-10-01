@@ -11,7 +11,7 @@ export default function sitemap() {
     { url: `${BASE_URL}/privacy`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.2 },
     ...posts.map((post) => ({
       url: `${BASE_URL}/blog/${post.slug}`,
-      lastModified: new Date(),
+      lastModified: new Date(post.date),
       changeFrequency: 'yearly',
       priority: 0.6,
     })),

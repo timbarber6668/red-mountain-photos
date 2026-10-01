@@ -24,7 +24,7 @@ export default function PrivacyPage() {
 
   return (
     <div className="bg-[#F5F3F0]">
-      <section className="bg-[#1A1A1A] text-[#F5F3F0] py-20 px-10 md:px-16">
+      <section className="bg-[#1A1A1A] text-[#F5F3F0] py-20 px-6 md:px-16">
         <div className="max-w-3xl mx-auto">
           <div className="mb-8 text-[#F5F3F0]">
             <Breadcrumbs current="Privacy Policy" />
@@ -41,14 +41,14 @@ export default function PrivacyPage() {
         </div>
       </section>
 
-      <section className="py-20 px-10 md:px-16">
+      <section className="py-20 px-6 md:px-16">
         <div className="max-w-3xl mx-auto">
           <p className="text-base text-[#1A1A1A]/75 leading-relaxed mb-10">
             Red Mountain Photography ("we", "us") operates redmountainphotos.com. This page explains what information we collect through this website, how we use it, and the choices you have. We keep this simple because our data practices are simple.
           </p>
 
           {section('Information You Give Us', [
-            'When you use the contact form, you choose what to send us: your name, email address, an optional phone number, the type of project, and your message. The form opens your own email application with that information prepared, and nothing is sent until you send it yourself. We receive it the same way we receive any other email.',
+            'When you use the contact form, you choose what to send us: your name, email address, an optional phone number, the property location, the type of project, and your message. The form delivers that information to us by email through our email provider, Resend. We receive it the same way we receive any other email.',
             'If you call or email us directly, we keep that correspondence so we can respond and maintain a record of the project.',
           ])}
 
@@ -59,7 +59,7 @@ export default function PrivacyPage() {
 
           {section('Information Collected Automatically', [
             'Our website is hosted on Vercel, which records standard server and security logs including IP addresses and browser information. These logs are used to keep the site running and secure.',
-            'If analytics are enabled on this site, we use them only to understand aggregate traffic patterns, such as which pages are visited and how people arrive. We configure analytics to avoid collecting information that identifies you personally, and we do not use it to build advertising profiles.',
+            'If analytics are enabled on this site, we use them only to understand how the site is used, such as which pages are visited, how people arrive, and which links and questions get clicked. We may use Google Analytics and Microsoft Clarity, which can record anonymized clicks, scrolling and mouse movement to produce heatmaps. Clarity masks text you type into forms. We do not use analytics to build advertising profiles.',
           ])}
 
           {section('Cookies', [
