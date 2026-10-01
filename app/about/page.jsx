@@ -54,7 +54,7 @@ const steps = [
   },
   {
     title: 'Deliver',
-    body: 'Edited, color-corrected files in an online gallery, sized for MLS, web and print. Listings in three business days, design work in about two weeks.',
+    body: 'Edited, color-corrected files in an online gallery, sized for MLS, web and print. Photos in 8 to 10 days, video in about two weeks. Ask about rush processing.',
   },
 ];
 

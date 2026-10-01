@@ -92,13 +92,13 @@ const posts = [
         heading: 'When someone else wants the photos',
         paragraphs: [
           'Say a broker books the shoot to list a home. The interior designer who did the house sees the photos and wants them for their portfolio. That is a different company using the images to market its own business, so it needs its own license. The same goes for the builder, the architect and any supplier.',
-          'An additional license costs a fraction of the original shoot. It is always far less than hiring a second photographer to shoot the same house.',
+          'Third parties always need their own license. When several companies license the same shoot, each one gets a discount, and the total is far less than each of them hiring a photographer.',
         ],
       },
       {
         heading: 'Why it pays to plan it up front',
         paragraphs: [
-          'When everyone talks before the shoot, two good things happen. First, the parties can split the cost, so each one pays a share instead of the whole thing. Second, the shot list covers what each of them actually needs.',
+          'When everyone talks before the shoot, two good things happen. First, the parties can share the cost, so each one pays a share instead of the whole thing. We encourage it. Second, the shot list covers what each of them actually needs.',
           'A builder wants the stonework and the joinery. A designer wants the styled vignettes and the light in the living room. An architect wants the full elevation at the right time of day. One well-planned shoot can deliver all of it. A shoot planned for one party usually leaves the others short.',
         ],
       },

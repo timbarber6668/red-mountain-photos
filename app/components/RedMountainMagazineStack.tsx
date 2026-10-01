@@ -18,7 +18,7 @@ const faqs = [
   {
     id: 'turnaround',
     q: 'How soon will I have the images?',
-    a: 'Listing shoots are delivered within three business days. Architectural and design projects take about two weeks, because every frame gets more retouching. Rush delivery is available when a launch date calls for it.',
+    a: 'Photos are delivered in 8 to 10 days, and video in about two weeks. If you need them sooner, ask about rush processing. It depends on availability.',
   },
   {
     id: 'pricing',
@@ -38,7 +38,7 @@ const faqs = [
   {
     id: 'licensing',
     q: 'Who can use the photos?',
-    a: 'The client who books the shoot can use the images to market that property anywhere: MLS, web, print and social. If a builder, architect, designer or supplier also wants to use them, they license them too, for far less than a second shoot. Sorting that out before the shoot lets everyone split the cost.',
+    a: 'The client who books the shoot can use the images to market that property anywhere: MLS, web, print and social. Any other company that wants to use them, such as a builder, architect, designer or supplier, needs its own license. Multiple licensees get a discount, and we encourage everyone involved to share the cost of the shoot.',
   },
   {
     id: 'prep',
