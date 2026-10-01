@@ -38,7 +38,7 @@ public/
     logo.png                        ← transparent logo (mountain + camera icon, red)
     Tim.avif                        ← founder portrait (About section)
     actual/
-      544A5593.jpg  ← HERO image (bedroom, chevron wall, brass lamp)
+      544A5593-sun.jpg  ← HERO image (bedroom, chevron wall, brass lamp, warm sunlight edit, Oct 2026)
       DJI_0547.jpg  ← Galloping Goose Chalet (drone aerial)
       544A8777.jpg  ← Sky High at the Plaza
       544A8388.jpg  ← Mountainside Retreat

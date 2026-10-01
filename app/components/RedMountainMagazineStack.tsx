@@ -285,7 +285,7 @@ const RedMountainMagazineStack = () => {
 
         <div className="relative w-full md:w-3/5 h-[110vw] sm:h-[70vw] md:h-auto">
           <img
-            src="/images/actual/544A5593.jpg"
+            src="/images/actual/544A5593-sun.jpg"
             alt="Bedroom with a chevron-paneled wall, black bed and brass reading lamp, Telluride interior photography"
             fetchPriority="high"
             className="absolute inset-0 w-full h-full object-cover object-center"
