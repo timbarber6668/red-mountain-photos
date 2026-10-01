@@ -1,7 +1,6 @@
 import './globals.css'
 import SiteHeader from './components/SiteHeader'
 import SiteFooter from './components/SiteFooter'
-import StickyMobileCTA from './components/StickyMobileCTA'
 import Analytics from './components/Analytics'
 
 export const metadata = {
@@ -123,11 +122,10 @@ export default function RootLayout({ children }) {
         <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }} />
       </head>
-      <body className="pb-[56px] md:pb-0">
+      <body>
         <SiteHeader />
         {children}
         <SiteFooter />
-        <StickyMobileCTA />
         <Analytics />
       </body>
     </html>

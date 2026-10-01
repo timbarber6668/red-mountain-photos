@@ -234,28 +234,43 @@ const RedMountainMagazineStack = () => {
     <div className="bg-[#F5F3F0]">
 
       {/* ── Hero ── */}
-      <section className="md:min-h-[calc(100vh-var(--header-h))] flex flex-col md:flex-row relative overflow-hidden">
-        <div className="relative z-10 w-full md:w-2/5 flex flex-col justify-between px-6 md:px-16 py-10 md:py-16 bg-[#F5F3F0]">
-          <div />
+      {/* Desktop: text panel left, photo right. Mobile: the photo fills one screen (svh, so it fits under the browser bars) with the name over a dark fade; the header's Contact is the only CTA. */}
+      <section className="relative flex flex-col md:flex-row overflow-hidden h-[calc(100svh-var(--header-h))] md:h-auto md:min-h-[calc(100vh-var(--header-h))]">
+        <div
+          className="absolute inset-x-0 bottom-0 z-10 px-6 pb-9 pt-32 bg-gradient-to-t from-black/75 via-black/35 to-transparent md:relative md:inset-auto md:w-2/5 md:flex md:flex-col md:justify-between md:px-16 md:py-16 md:bg-[#F5F3F0] md:bg-none"
+        >
+          <div className="hidden md:block" />
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: 'easeOut', delay: 0.15 }}
-            className="py-6 md:py-0"
           >
             <img
               src="/images/logo.png"
               alt="Red Mountain Photography logo, a mountain peak and camera"
               width="89"
               height="56"
-              className="mb-3 w-auto"
+              className="hidden md:block mb-3 w-auto"
               style={{ height: 'clamp(32px, 3.8vw, 56px)' }}
             />
-            <h1 className="leading-[0.9] tracking-[-0.03em] text-[#1A1A1A] uppercase" style={{ ...sans, fontWeight: 300 }}>
-              <span className="block text-[11vw] md:text-[3.8vw] whitespace-nowrap" style={{ fontWeight: 500 }}>Red Mountain</span>
-              <span className="block text-[11vw] md:text-[3.8vw] text-[#8B4545] whitespace-nowrap" style={{ fontWeight: 300 }}>Photography</span>
+            <h1 className="leading-[0.9] tracking-[-0.03em] uppercase" style={{ ...sans, fontWeight: 300 }}>
+              <span
+                className="block text-[11vw] text-[#F5F3F0] md:text-[3.8vw] md:text-[#1A1A1A] whitespace-nowrap"
+                style={{ fontWeight: 500 }}
+              >
+                Red Mountain
+              </span>
+              <span
+                className="block text-[11vw] text-[#F5F3F0] md:text-[3.8vw] md:text-[#8B4545] whitespace-nowrap"
+                style={{ fontWeight: 300 }}
+              >
+                Photography
+              </span>
             </h1>
-            <p className="mt-7 text-base md:text-lg text-[#1A1A1A]/70 leading-relaxed max-w-sm" style={sans}>
+            <p
+              className={`text-[#F5F3F0]/85 mt-3 md:mt-7 text-sm md:text-lg md:text-[#1A1A1A]/70 leading-relaxed max-w-sm`}
+              style={sans}
+            >
               Architecture, interiors and real estate. Based in Telluride, shooting nationwide.
             </p>
           </motion.div>
@@ -263,7 +278,7 @@ const RedMountainMagazineStack = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.4 }}
-            className="flex flex-wrap items-center gap-3"
+            className="hidden md:flex flex-wrap items-center gap-3"
             style={sans}
           >
             <Link
@@ -283,7 +298,9 @@ const RedMountainMagazineStack = () => {
           </motion.div>
         </div>
 
-        <div className="relative w-full md:w-3/5 h-[110vw] sm:h-[70vw] md:h-auto">
+        <div
+          className="absolute inset-0 md:relative md:inset-auto md:flex-none md:w-3/5 md:h-auto"
+        >
           <img
             src="/images/actual/544A5593-sun.jpg"
             alt="Bedroom with a chevron-paneled wall, black bed and brass reading lamp, Telluride interior photography"

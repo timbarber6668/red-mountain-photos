@@ -41,7 +41,7 @@ export default function SiteHeader() {
         </Link>
         <nav
           aria-label="Primary"
-          className="flex items-center gap-5 md:gap-10 text-[10px] md:text-[11px] tracking-[0.16em] md:tracking-[0.22em] uppercase"
+          className="flex items-center gap-3.5 min-[390px]:gap-5 md:gap-10 text-[10px] md:text-[11px] tracking-[0.1em] min-[390px]:tracking-[0.16em] md:tracking-[0.22em] uppercase"
         >
           {NAV.map((item) => {
             const active = item.match && pathname.startsWith(item.match);
@@ -59,7 +59,7 @@ export default function SiteHeader() {
           <Link
             href="/contact"
             data-cta="header-contact"
-            className="bg-[#8B4545] text-white px-3.5 md:px-5 py-2.5 hover:bg-[#1A1A1A] transition-colors"
+            className="bg-[#8B4545] text-white px-3 min-[390px]:px-3.5 md:px-5 py-2.5 hover:bg-[#1A1A1A] transition-colors"
           >
             Contact
           </Link>
