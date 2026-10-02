@@ -43,7 +43,6 @@ public/
       544A8777.jpg  ← Sky High at the Plaza
       544A8388.jpg  ← Mountainside Retreat
       544A1449.jpg  ← Ironwood Estates
-      544A1850.jpg  ← Twilight Approach
       544A3825.jpg  ← Weathered Stone
       544A6445.jpg  ← About page: Real Estate/Architecture card
       544A5484.jpg  ← About page: Home Tour Videos card
@@ -51,6 +50,20 @@ public/
       DJI_0943.jpg  ← About page: Drone card (top-down aerial)
       544A6048.jpg  ← Contact page sidebar (kitchen, resized to 1600px)
 ```
+
+## Oct 2 changes
+- Twilight Approach removed from the work stack (5 projects). Its image 544A1850.jpg is still referenced by the unused RedMountainPhotosHero.jsx, so it stays in public/.
+- Bars show a VIEW/CLOSE label and the images open the project, to make clicking in more inviting.
+- **Close jump fixed:** closing a panel (by tap, or the auto-close once it scrolls out of view) used to shift everything below up by the panel height, throwing phones far down the page. `collapse()` now takes the part of the panel already behind the bars back out of the scroll position as it shrinks. Auto-close waits for scrolling to stop (200ms idle) and is instant, so it is invisible. Switching projects removes the old panel instantly so the new one lands right under the bars. Panels are found by id (`project-panel-<id>`), not a shared ref: an exiting panel nulls a shared ref after the new one sets it.
+- **Lightbox** (`Lightbox` in RedMountainMagazineStack): swipe/drag between gallery images, ← → buttons, arrow keys, "n / total" counter, Esc or tap outside the photo to close, page scroll locked while open. Avoid AnimatePresence `mode="popLayout"`: it warns under React 18. Tim plans to consolidate each shoot into the White Oak House layout (hero image or pair, then a gallery) and will send the photo organization.
+
+## Project photo sets (Oct 2)
+- Source: Tim's folders in `~/Documents/RedMountain/resized/<Project Title>/`, one per project, with `hero.jpg` = the home-page image and everything else = gallery. Re-export with `magick -auto-orient -colorspace sRGB -resize ... -strip -interlace Plane`: hero 3200px wide (q82), gallery 2560px long edge (q82), thumbs 600px (q76) in `thumb/`.
+- Output: `public/images/work/<slug>/` (galloping-goose-chalet, sky-high-at-the-plaza, mountainside-retreat, white-oak-house, weathered-stone). `work(slug)` in RedMountainMagazineStack builds hero/gallery paths; each image has its own alt text. `public/images/work/catherine-frank/` stays because blog posts use two files from it.
+- The hero is also the first gallery image (`projects` is built from `projectList` with it prepended; `thumb/hero.jpg` exists in each folder).
+- White Oak House no longer uses a side-by-side `pair` hero; that option was removed. Thumbnails are square (mixed orientations).
+- Heroes from Galloping Goose, Mountainside Retreat and Sky High arrived at 1600px wide; ask Tim for larger exports if they look soft full screen.
+- **Preloading:** after window load (idle), every hero then every thumbnail is fetched in the background. Opening a project, or mouse-hovering its bar or image, fetches its full-size gallery first. Max 3 requests at once, skipped on Save-Data or 2g. Lightbox also warms neighbours.
 
 ## Launch polish (Sept 30, 2026, branch `launch-polish`)
 - **Sticky header** (`SiteHeader.jsx`, client): translucent cream with blur, Contact is a solid red button on every page. Height lives in `--header-h` (globals.css: 56px mobile, 64px md+). Magazine-stack bars use `--bar-h` (46/56px) and offset by the header; the scroll/observer math reads both vars, so change heights only in globals.css.
@@ -116,10 +129,11 @@ Schema upgraded from LocalBusiness to ProfessionalService with hasOfferCatalog, 
 - **Right:** Tim's portrait (`/images/Tim.avif`), `object-cover object-top`
 
 ### 5. Magazine Stack (the key scroll interaction)
-- All 6 project title bars + images are **flat siblings** inside one `<div>` with `overflow-anchor: none`
+- All 5 project title bars + images are **flat siblings** inside one `<div>` with `overflow-anchor: none`
 - Each bar: `position: sticky`, `top: index × 56px` (`BAR_HEIGHT = 56`), `z-index: 50`
 - Bars accumulate at top as you scroll down (CSS sticky stacking)
-- Each bar renders: `TITLE ... (YEAR)  CATEGORY  →`
+- Each bar renders: `NN  TITLE ... LOCATION  CATEGORY  VIEW →` (label reads CLOSE when open; title turns red on hover)
+- Each project image is also a button: clicking it opens that project (never closes it) and shows a "View project →" chip on hover (always visible on mobile)
 - Hover: bg tints to `#f9f8f6`
 - Font: Space Grotesk, `tracking-[0.22em]` uppercase
 
@@ -142,8 +156,7 @@ Schema upgraded from LocalBusiness to ProfessionalService with hasOfferCatalog, 
 | 2 | Sky High at the Plaza | Interior Study | 544A8777.jpg | Mountain Village, CO |
 | 3 | Mountainside Retreat | Renovation Series | 544A8388.jpg | Telluride, CO |
 | 4 | White Oak House | Interior Design | work/catherine-frank/544A5606 + 5601 (pair) | Telluride, CO |
-| 5 | Twilight Approach | Golden Hour | 544A1850.jpg | Telluride, CO |
-| 6 | Weathered Stone | Detail Focus | 544A3825.jpg | Ouray, CO |
+| 5 | Weathered Stone | Detail Focus | 544A3825.jpg | Ouray, CO |
 
 Each expanded panel's "Start a Project Like This →" links to `/contact`.
 

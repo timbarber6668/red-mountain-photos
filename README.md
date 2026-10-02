@@ -72,7 +72,6 @@ mockup-site/
 │           ├── 544A8777.jpg                  # Shadowed Ridges
 │           ├── 544A8388.jpg                  # Mountain Gaze
 │           ├── 544A1449.jpg                  # Forest Depths
-│           ├── 544A1850.jpg                  # Twilight Approach
 │           └── 544A3825.jpg                  # Weathered Stone
 │           └── [16 additional project images]
 ├── CLAUDE.md                                 # Technical documentation
@@ -102,7 +101,7 @@ mockup-site/
 3. **Local SEO** — Service area coverage (Telluride → Steamboat Springs)
 4. **Services** — 2×2 grid: Real Estate, Video, Hospitality, Drone
 5. **About** — Dark section with Tim Barber bio and founder portrait
-6. **Magazine Stack** (`#work`) — Sticky stacking bars with expandable project panels (6 projects)
+6. **Magazine Stack** (`#work`) — Sticky stacking bars with expandable project panels (5 projects)
 7. **FAQ** (`#faq`) — 6 questions including pricing (off-white background)
 8. **Photography Resources** — 3 article cards with images linking to real posts at /blog (white background to contrast with FAQ)
 9. **Testimonials** — 3 quotes, off-white background (placeholder attributions — replace with real client quotes before launch)
@@ -122,7 +121,7 @@ All sections share the same left gutter (no centered containers) per Tim's align
 
 The centerpiece of the site is an interactive "magazine stack" that uses CSS `position: sticky` to create an accumulating visual effect:
 
-- 6 project bars stick to the top as you scroll down
+- 5 project bars stick to the top as you scroll down
 - Click any bar to expand a detailed project panel
 - Panel expands inline, pushing content down
 - Bars below the expanded panel appear "behind" it

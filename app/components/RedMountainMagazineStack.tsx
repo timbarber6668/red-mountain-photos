@@ -54,11 +54,13 @@ const faqs = [
   },
 ];
 
+type GalleryImage = { src: string; full: string; alt: string };
+
 interface ProjectItem {
   id: number;
   src: string;
-  /** Optional second image: shown side by side with `src` on desktop. */
-  pair?: string;
+  /** Specific description of the hero image. */
+  alt?: string;
   title: string;
   category: string;
   year: string;
@@ -68,19 +70,30 @@ interface ProjectItem {
   description: string;
   details: string;
   deliverables: string[];
-  gallery?: { src: string; full: string; alt: string }[];
+  gallery?: GalleryImage[];
 }
 
-const cf = (n: string, alt: string) => ({
-  src: `/images/work/catherine-frank/thumb/${n}.jpg`,
-  full: `/images/work/catherine-frank/${n}.jpg`,
-  alt,
+// Each project folder in public/images/work/<slug>/ holds hero.jpg (home page),
+// full-size gallery images (2560px long edge) and thumb/ (800px).
+const work = (slug: string) => ({
+  hero: `/images/work/${slug}/hero.jpg`,
+  shot: (n: string, alt: string): GalleryImage => ({
+    src: `/images/work/${slug}/thumb/${n}.jpg`,
+    full: `/images/work/${slug}/${n}.jpg`,
+    alt,
+  }),
 });
+const gg = work('galloping-goose-chalet');
+const sh = work('sky-high-at-the-plaza');
+const mr = work('mountainside-retreat');
+const wo = work('white-oak-house');
+const ws = work('weathered-stone');
 
-const projects: ProjectItem[] = [
+const projectList: ProjectItem[] = [
   {
     id: 1,
-    src: '/images/actual/DJI_0547.jpg',
+    src: gg.hero,
+    alt: 'Aerial view of a timber mountain home among aspens and pines at golden hour, with the San Juan peaks beyond',
     title: 'Galloping Goose Chalet',
     category: 'Drone Series',
     year: '2024',
@@ -89,10 +102,19 @@ const projects: ProjectItem[] = [
     description: 'A full aerial coverage project showcasing a luxury mountain estate nestled in the San Juan range above Telluride. Shot across two golden-hour sessions to capture the interplay of natural light across the home and surrounding landscape.',
     details: 'FAA-certified drone imaging provided context shots, site overview, and detail passes at multiple altitudes. The results were used across MLS listing materials, broker marketing decks, and the developer\'s portfolio.',
     deliverables: ['10 aerial stills', '1-min cinematic reel', 'Social media edits'],
+    gallery: [
+      gg.shot('544A1850', 'Kitchen with green glazed tile, a wood range hood and timber posts'),
+      gg.shot('544A1893', 'Kitchen island with wood stools under exposed timber framing'),
+      gg.shot('544A1887', 'Corner reading nook with a daybed and floor-to-ceiling windows onto aspens and peaks'),
+      gg.shot('544A8018', 'Dining room with wood chairs and a wall of windows into the trees'),
+      gg.shot('544A1819', 'Wood soaking tub beside a tall window'),
+      gg.shot('544A2097', 'Stone terrace with a round fire pit, hot tub and aspens at sunset'),
+    ],
   },
   {
     id: 2,
-    src: '/images/actual/544A8777.jpg',
+    src: sh.hero,
+    alt: 'Kitchen with deep green cabinetry, white tile, open wood shelving and leather stools',
     title: 'Sky High at the Plaza',
     category: 'Interior Study',
     year: '2022',
@@ -101,10 +123,20 @@ const projects: ProjectItem[] = [
     description: 'A warm modern kitchen study, balancing bold color with restrained material selection. Deep green cabinetry anchors the space against a clean white tile backdrop, while natural wood shelving and brass accents introduce warmth and contrast. The design blends contemporary minimalism with mid-century influences, creating a space that feels both elevated and approachable.',
     details: 'Captured over a single full day with both wide establishing shots and tight detail frames. The resulting images were used in the designer\'s portfolio and on the client\'s website.',
     deliverables: ['28 interior and exterior stills', 'Detail series', 'Print-ready files'],
+    gallery: [
+      sh.shot('544A8783', 'Dining area with rust chairs, brass globe lights and sheer curtains'),
+      sh.shot('544A1757', 'Living room with a blue sofa and tall windows framing the mountains'),
+      sh.shot('544A8712', 'Breakfast nook with a round table, window seat and circular shelf'),
+      sh.shot('544A1650', 'Bedroom with a chevron wood wall, rust armchair and black-framed windows'),
+      sh.shot('544A1655', 'Sunlight across a chevron wood headboard wall and bedside pendant'),
+      sh.shot('544A1749', 'Upholstered bed with layered pillows in late afternoon light'),
+      sh.shot('DJI_0098', 'Aerial view of the Mountain Village plaza and ski runs at sunset'),
+    ],
   },
   {
     id: 3,
-    src: '/images/actual/544A8388.jpg',
+    src: mr.hero,
+    alt: 'White oak kitchen with an island, brass pendants and leather stools',
     title: 'Mountainside Retreat',
     category: 'Renovation Series',
     year: '2024',
@@ -113,11 +145,17 @@ const projects: ProjectItem[] = [
     description: 'Interior work commissioned by the architect showcasing their renovation projects in historic Telluride. The brief called for imagery that felt lived-in and warm rather than staged.',
     details: 'Natural light was prioritized throughout. Furniture and props were styled on-site with the client\'s design team. Final images appeared in a regional hospitality guide and the brand\'s website launch.',
     deliverables: ['20 interior stills', 'Post production staging', 'Web-optimized gallery'],
+    gallery: [
+      mr.shot('544A8353', 'Open great room under a vaulted timber ceiling with gable windows'),
+      mr.shot('544A8375', 'Living room with a dark fireplace wall and sectional sofa'),
+      mr.shot('544A8406', 'Vaulted living room with a linear fireplace and gable windows'),
+      mr.shot('544A8467', 'Kitchen sink under a black-framed window with brass pendants'),
+    ],
   },
   {
     id: 4,
-    src: '/images/work/catherine-frank/544A5606.jpg',
-    pair: '/images/work/catherine-frank/544A5601.jpg',
+    src: wo.hero,
+    alt: 'White oak kitchen wall with a stone backsplash in raking afternoon light',
     title: 'White Oak House',
     category: 'Interior Design',
     year: '2026',
@@ -128,29 +166,28 @@ const projects: ProjectItem[] = [
     details: 'Shot in the fall with the aspens turning outside. Wide frames follow the flow of the house. Closer frames stay on the curved oak stair, the stone fireplace surrounds and the carved stone tub, where the craft is easiest to see.',
     deliverables: ['18 finished images', 'Web and print files'],
     gallery: [
-      cf('544A5649', 'White oak kitchen wall with integrated range and stone backsplash'),
-      cf('544A5655', 'Linear fireplace set in a white oak surround with stacked stone walls'),
-      cf('544A5693', 'Carved stone soaking tub beside steel-framed windows and aspens'),
-      cf('544A5752', 'Gallery hallway with stone wall, timber beams and sheepskin chairs'),
-      cf('544A5732', 'Curved blackened steel stair above a rust velvet sofa'),
-      cf('544A5765', 'Living room with stone fireplace wall, sheepskin chairs and aspen views'),
+      wo.shot('544A5606', 'Leather chairs at a tall window framing aspens and peaks'),
+      wo.shot('544A5605', 'Curved white oak staircase with a lit handrail'),
+      wo.shot('544A5617', 'Living room with a curved sofa under steel-framed windows and fall aspens'),
+      wo.shot('544A5765', 'Living room with a stone fireplace wall, sheepskin chairs and aspen views'),
+      wo.shot('544A5655', 'Linear fireplace set in a white oak surround with stacked stone walls'),
+      wo.shot('544A5752', 'Gallery hallway with stone wall, timber beams and sheepskin chairs'),
+      wo.shot('544A5649', 'White oak kitchen wall with integrated range and stone backsplash'),
+      wo.shot('544A5643', 'Kitchen island with leather stools and a wall of windows'),
+      wo.shot('544A5633', 'Kitchen island with a stone counter and brass faucets beside tall windows'),
+      wo.shot('544A5791', 'Kitchen with a black range hood, marble island and leather stools'),
+      wo.shot('544A5668', 'Blue-walled bar and billiards room with a crystal chandelier'),
+      wo.shot('544A5607', 'Seating area with a sculptural chair beside black steel windows'),
+      wo.shot('544A5732', 'Curved blackened steel stair above a rust velvet sofa'),
+      wo.shot('544A5746', 'White oak stair rising past a corner window'),
+      wo.shot('544A5718', 'Bedroom with a see-through fireplace and fur bench'),
+      wo.shot('544A5693', 'Carved stone soaking tub beside steel-framed windows and aspens'),
     ],
   },
   {
-    id: 5,
-    src: '/images/actual/544A1850.jpg',
-    title: 'Twilight Approach',
-    category: 'Golden Hour',
-    year: '2024',
-    location: 'Telluride, CO',
-    services: ['Twilight Photography', 'Architectural Photography'],
-    description: 'Twilight and dusk photography for a contemporary mountain home in Telluride\'s historic district. The blue-hour window, roughly 20 minutes after sunset, produced the warm exterior glow and dramatic sky contrast the client needed for their feature submission.',
-    details: 'Coordinated with the interior design and staging teams to ensure all lighting was tuned for the shoot window. Multiple bracketed exposures were composited for maximum dynamic range across the sky and interior warm tones.',
-    deliverables: ['Twilight exterior series', 'Interior ambient stills', 'High-res composites'],
-  },
-  {
     id: 6,
-    src: '/images/actual/544A3825.jpg',
+    src: ws.hero,
+    alt: 'Bedroom with a live-edge walnut headboard against geometric wallpaper',
     title: 'Weathered Stone',
     category: 'Detail Focus',
     year: '2024',
@@ -159,8 +196,63 @@ const projects: ProjectItem[] = [
     description: 'A close study of material and craft in a custom stone residence in Ouray. The client, a design-build firm, needed images that communicated the quality and precision of their stonework and millwork to prospective clients and design press.',
     details: 'Shot with macro and tilt-shift lenses to isolate material character without distortion. The resulting detail library is used across the firm\'s portfolio, pitch decks, and award submissions.',
     deliverables: ['60 detail stills', 'Material library', 'Print-ready masters'],
+    gallery: [
+      ws.shot('544A3840', 'Dining room with a sculptural chandelier and blackened steel fireplace'),
+      ws.shot('544A4143', 'Living room with a steel fireplace wall and bear portrait'),
+      ws.shot('544A4147', 'Blackened steel fireplace wall with a glowing linear fire'),
+      ws.shot('544A3847', 'Snowy mountain mural behind a tripod lamp and side table'),
+      ws.shot('544A4022', 'Kitchen sink under a window looking out to pines and cliffs'),
+      ws.shot('544A3826', 'Rooftop hot tub facing a steep mountain canyon'),
+      ws.shot('544A3836', 'Bed facing open balcony doors and the mountains'),
+      ws.shot('544A3837', 'Bedroom with an upholstered headboard and panoramic artwork'),
+      ws.shot('544A3834', 'Bed with geometric pillows beside a lamp and tall window'),
+      ws.shot('544A3831', 'Bed with patterned wallpaper and a wall sconce'),
+      ws.shot('544A3829', 'Bunk room with a stag pillow and triangle-pattern wall'),
+      ws.shot('544A3828', 'Bed corner with a window onto town rooftops'),
+      ws.shot('544A3823', 'Morning light on a dark bedspread by the window'),
+    ],
   },
 ];
+
+// The hero opens the gallery, so the lightbox starts on the home-page image.
+const projects: ProjectItem[] = projectList.map(p =>
+  p.gallery && p.src.endsWith('/hero.jpg')
+    ? { ...p, gallery: [{ src: p.src.replace('/hero.jpg', '/thumb/hero.jpg'), full: p.src, alt: p.alt ?? p.title }, ...p.gallery] }
+    : p
+);
+
+// Background image preloading. Requests run a few at a time so they never
+// crowd out what the visitor is looking at, and are skipped on Save-Data or
+// slow connections. Each URL is fetched once; the browser cache does the rest.
+const preloaded = new Set<string>();
+const preloadQueue: string[] = [];
+let preloadActive = 0;
+const canPreload = () => {
+  if (typeof navigator === 'undefined') return false;
+  const c = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
+  return !(c?.saveData || /(^|-)2g$/.test(c?.effectiveType ?? ''));
+};
+const pumpPreload = () => {
+  while (preloadActive < 3 && preloadQueue.length) {
+    const url = preloadQueue.shift()!;
+    preloadActive++;
+    const img = new Image();
+    img.decoding = 'async';
+    img.onload = img.onerror = () => { preloadActive--; pumpPreload(); };
+    img.src = url;
+  }
+};
+// `urgent` jumps the queue (a project the visitor just opened or is pointing at).
+const preload = (urls: string[], urgent = false) => {
+  if (!canPreload()) return;
+  const fresh = urls.filter(u => !preloaded.has(u));
+  fresh.forEach(u => preloaded.add(u));
+  if (urgent) preloadQueue.unshift(...fresh);
+  else preloadQueue.push(...fresh);
+  pumpPreload();
+};
+const preloadProject = (project: ProjectItem) =>
+  preload([project.src, ...(project.gallery ?? []).flatMap(g => [g.src, g.full])], true);
 
 // Sticky offsets come from CSS variables (globals.css) so the bars stack
 // below the sticky site header and shrink on phones.
@@ -173,62 +265,270 @@ const Eyebrow = ({ children, className = '' }: { children: React.ReactNode; clas
   </p>
 );
 
+// Hover/always-on label inviting a click on a project image.
+const ViewCue = () => (
+  <span
+    aria-hidden="true"
+    className="absolute bottom-6 right-6 md:bottom-10 md:right-10 inline-flex items-center gap-2 bg-[#F5F3F0]/90 backdrop-blur-sm px-4 py-2.5 text-[11px] tracking-[0.2em] uppercase text-[#1A1A1A] transition-all duration-300 md:opacity-0 md:translate-y-2 group-hover/img:opacity-100 group-hover/img:translate-y-0"
+    style={sans}
+  >
+    View project <span className="text-[#8B4545]">→</span>
+  </span>
+);
+
+const panelEase = [0.4, 0, 0.2, 1] as const;
+const panelVariants = {
+  open: { height: 'auto', opacity: 1, transition: { duration: 0.4, ease: panelEase } },
+  closed: (instant: boolean) => ({
+    height: 0,
+    opacity: 0,
+    transition: { duration: instant ? 0 : 0.4, ease: panelEase },
+  }),
+};
+
+// Full-screen gallery viewer: swipe or drag on touch, arrows and keys on desktop.
+const Lightbox = ({
+  images,
+  index,
+  onIndex,
+  onClose,
+}: {
+  images: GalleryImage[];
+  index: number;
+  onIndex: (i: number) => void;
+  onClose: () => void;
+}) => {
+  const [dir, setDir] = useState(0);
+  const dragged = React.useRef(false);
+  const count = images.length;
+  const go = React.useCallback((step: number) => {
+    setDir(step);
+    onIndex((index + step + count) % count);
+  }, [index, count, onIndex]);
+  const image = images[index];
+
+  React.useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+      else if (e.key === 'ArrowRight') go(1);
+      else if (e.key === 'ArrowLeft') go(-1);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [go, onClose]);
+
+  // Keep the page behind from scrolling while the viewer is open.
+  React.useEffect(() => {
+    const root = document.documentElement;
+    const prev = root.style.overflow;
+    root.style.overflow = 'hidden';
+    return () => { root.style.overflow = prev; };
+  }, []);
+
+  // Warm the neighbours so a swipe lands on a loaded image.
+  React.useEffect(() => {
+    [1, -1].forEach(step => { new Image().src = images[(index + step + count) % count].full; });
+  }, [index, images, count]);
+
+  const arrow = 'absolute top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-11 h-11 md:w-14 md:h-14 rounded-full bg-black/45 backdrop-blur-sm text-white/90 hover:bg-black/70 hover:text-white transition-colors text-lg md:text-xl';
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.25 }}
+      className="fixed inset-0 z-[100] bg-[#111]/95 flex items-center justify-center overflow-hidden"
+      style={{ touchAction: 'none' }}
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label={image.alt}
+    >
+      <AnimatePresence initial={false} custom={dir}>
+        <motion.div
+          key={image.full}
+          custom={dir}
+          variants={{
+            enter: (d: number) => ({ x: d > 0 ? '60%' : d < 0 ? '-60%' : 0, opacity: 0 }),
+            center: { x: 0, opacity: 1 },
+            exit: (d: number) => ({ x: d > 0 ? '-60%' : '60%', opacity: 0 }),
+          }}
+          initial="enter"
+          animate="center"
+          exit="exit"
+          transition={{ x: { type: 'spring', stiffness: 320, damping: 34 }, opacity: { duration: 0.2 } }}
+          drag={count > 1 ? 'x' : false}
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={0.8}
+          onDragStart={() => { dragged.current = true; }}
+          onDragEnd={(_, info) => {
+            const swipe = info.offset.x + info.velocity.x * 0.2;
+            if (swipe < -80) go(1);
+            else if (swipe > 80) go(-1);
+          }}
+          onClick={e => {
+            // Tapping the dark area closes; a swipe that ends there does not.
+            e.stopPropagation();
+            if (!dragged.current && e.target === e.currentTarget) onClose();
+            dragged.current = false;
+          }}
+          className="absolute inset-0 flex items-center justify-center px-4 pt-12 pb-12 md:px-20 md:py-10 cursor-grab active:cursor-grabbing"
+        >
+          <img
+            src={image.full}
+            alt={image.alt}
+            draggable={false}
+            className="max-h-full max-w-full object-contain select-none"
+          />
+        </motion.div>
+      </AnimatePresence>
+
+      {count > 1 && (
+        <>
+          <button
+            type="button"
+            aria-label="Previous image"
+            className={`${arrow} left-2 md:left-6`}
+            onClick={e => { e.stopPropagation(); go(-1); }}
+          >
+            ←
+          </button>
+          <button
+            type="button"
+            aria-label="Next image"
+            className={`${arrow} right-2 md:right-6`}
+            onClick={e => { e.stopPropagation(); go(1); }}
+          >
+            →
+          </button>
+          <p
+            className="absolute bottom-5 left-1/2 -translate-x-1/2 text-[11px] tracking-[0.2em] text-white/60 tabular-nums"
+            style={sans}
+            aria-live="polite"
+          >
+            {index + 1} / {count}
+          </p>
+        </>
+      )}
+
+      <button
+        type="button"
+        className="absolute top-4 right-5 text-[11px] tracking-[0.2em] uppercase text-white/70 hover:text-white"
+        style={sans}
+        onClick={onClose}
+      >
+        Close
+      </button>
+    </motion.div>
+  );
+};
+
 const RedMountainMagazineStack = () => {
   const [expandedId, setExpandedId] = useState<number | null>(null);
-  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+  const [lightbox, setLightbox] = useState<{ images: GalleryImage[]; index: number } | null>(null);
+  // Panels leave instantly when they are off screen or another panel is opening.
+  const [exitInstant, setExitInstant] = useState(false);
   const expandedIndex = expandedId !== null ? projects.findIndex(p => p.id === expandedId) : -1;
-  const panelRef = React.useRef<HTMLDivElement>(null);
+
+  const panelEl = (id: number) => document.getElementById(`project-panel-${id}`);
+  const barsAbove = (index: number) => cssPx('--header-h') + (index + 1) * cssPx('--bar-h');
+
+  // Close the open panel without moving what the visitor is looking at. Any part
+  // of the panel already scrolled up behind the bars is taken back out of the
+  // scroll position as the panel shrinks, so the content below stays put.
+  const collapse = (instant: boolean) => {
+    if (expandedId === null) return;
+    const panel = panelEl(expandedId);
+    setExitInstant(instant);
+    setExpandedId(null);
+    if (!panel) return;
+    const rect = panel.getBoundingClientRect();
+    const startHeight = rect.height;
+    const hidden = Math.min(startHeight, Math.max(0, barsAbove(expandedIndex) - rect.top));
+    if (hidden <= 0) return;
+    const startScroll = window.scrollY;
+    const step = () => {
+      const h = panel.isConnected ? panel.offsetHeight : 0;
+      window.scrollTo({ top: startScroll - Math.min(hidden, startHeight - h), behavior: 'instant' });
+      if (h > 0) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+
+  const open = (project: ProjectItem) => {
+    if (expandedId === project.id) return;
+    preloadProject(project);
+    setExitInstant(true);
+    setExpandedId(project.id);
+    track('project_open', { project: project.title });
+  };
 
   const toggle = (project: ProjectItem) => {
-    setExpandedId(prev => {
-      const next = prev === project.id ? null : project.id;
-      if (next !== null) track('project_open', { project: project.title });
-      return next;
-    });
+    if (expandedId === project.id) collapse(false);
+    else open(project);
   };
+
+  // Once the page has loaded, quietly fetch every hero, then the thumbnails.
+  React.useEffect(() => {
+    const start = () => {
+      preload(projects.map(p => p.src));
+      preload(projects.flatMap(p => (p.gallery ?? []).map(g => g.src)));
+    };
+    const idle = () => ('requestIdleCallback' in window ? window.requestIdleCallback(start, { timeout: 3000 }) : setTimeout(start, 1500));
+    if (document.readyState === 'complete') idle();
+    else window.addEventListener('load', idle, { once: true });
+    return () => window.removeEventListener('load', idle);
+  }, []);
 
   // After the panel renders, scroll so it sits just below the stacked bars.
   React.useEffect(() => {
-    if (expandedId === null || !panelRef.current) return;
-    const panel = panelRef.current;
-
-    // Double rAF waits for layout to settle after scroll anchoring.
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        const barsAbove = cssPx('--header-h') + (expandedIndex + 1) * cssPx('--bar-h');
-        let absoluteTop = 0;
-        let el: HTMLElement | null = panel;
-        while (el) {
-          absoluteTop += el.offsetTop;
-          el = el.offsetParent as HTMLElement | null;
-        }
-        document.documentElement.scrollTop = absoluteTop - barsAbove;
-      });
-    });
+    if (expandedId === null) return;
+    let frames = 0;
+    let raf = 0;
+    const place = () => {
+      const panel = panelEl(expandedId);
+      // Wait for a previously open panel to leave so the math sees final layout.
+      const others = document.querySelectorAll('[data-project-panel]').length > 1;
+      if (!panel || (others && frames++ < 30)) { raf = requestAnimationFrame(place); return; }
+      const top = panel.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: top - barsAbove(expandedIndex), behavior: 'smooth' });
+    };
+    // Double rAF lets layout settle before measuring.
+    raf = requestAnimationFrame(() => { raf = requestAnimationFrame(place); });
+    return () => cancelAnimationFrame(raf);
   }, [expandedId, expandedIndex]);
 
-  // Collapse when the panel scrolls behind the sticky bars.
+  // Collapse once the panel has left the view (behind the bars or below the
+  // screen), but only after scrolling stops so a flick on a phone is not fought.
+  const collapseRef = React.useRef(collapse);
+  collapseRef.current = collapse;
   React.useEffect(() => {
     if (expandedId === null) return;
     let observer: IntersectionObserver | null = null;
+    let outOfView = false;
+    let idle: ReturnType<typeof setTimeout> | undefined;
+    const onScroll = () => {
+      clearTimeout(idle);
+      idle = setTimeout(() => { if (outOfView) collapseRef.current(true); }, 200);
+    };
     const timer = setTimeout(() => {
-      if (!panelRef.current) return;
-      const barsHeight = cssPx('--header-h') + (expandedIndex + 1) * cssPx('--bar-h');
+      const panel = panelEl(expandedId);
+      if (!panel) return;
       observer = new IntersectionObserver(
-        ([entry]) => { if (!entry.isIntersecting) setExpandedId(null); },
-        { rootMargin: `-${barsHeight}px 0px 0px 0px` }
+        ([entry]) => { outOfView = !entry.isIntersecting; },
+        { rootMargin: `-${barsAbove(expandedIndex)}px 0px 0px 0px` }
       );
-      observer.observe(panelRef.current);
+      observer.observe(panel);
+      window.addEventListener('scroll', onScroll, { passive: true });
     }, 1500);
-    return () => { clearTimeout(timer); observer?.disconnect(); };
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(idle);
+      observer?.disconnect();
+      window.removeEventListener('scroll', onScroll);
+    };
   }, [expandedId, expandedIndex]);
-
-  React.useEffect(() => {
-    if (!lightbox) return;
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setLightbox(null); };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
-  }, [lightbox]);
 
   return (
     <div className="bg-[#F5F3F0]">
@@ -403,24 +703,27 @@ const RedMountainMagazineStack = () => {
                 data-project-id={project.id}
                 aria-expanded={isOpen}
                 aria-controls={panelId}
-                className="sticky w-full text-left bg-white border-b border-black/10 cursor-pointer transition-colors duration-150 hover:bg-[#f9f8f6]"
+                className="group sticky w-full text-left bg-white border-b border-black/10 cursor-pointer transition-colors duration-150 hover:bg-[#f3efe9]"
                 style={{
                   top: `calc(var(--header-h) + var(--bar-h) * ${index})`,
                   height: 'var(--bar-h)',
                   zIndex: expandedIndex >= 0 && index > expandedIndex ? 40 : 50,
                 }}
                 onClick={() => toggle(project)}
+                onPointerEnter={e => { if (e.pointerType === 'mouse') preloadProject(project); }}
               >
                 <div className="flex items-center justify-between h-full px-6 md:px-10" style={sans}>
                   <span className="flex items-baseline gap-4 md:gap-6">
                     <span className="text-[10px] tracking-[0.2em] text-[#8B4545] tabular-nums">{String(index + 1).padStart(2, '0')}</span>
-                    <span className="text-xs md:text-sm font-medium tracking-[0.18em] md:tracking-[0.22em] uppercase text-[#1A1A1A]">
+                    <span className="text-xs md:text-sm font-medium tracking-[0.18em] md:tracking-[0.22em] uppercase text-[#1A1A1A] transition-colors duration-150 group-hover:text-[#8B4545]">
                       {project.title}
                     </span>
                   </span>
                   <span className="flex items-center gap-8 text-xs tracking-[0.15em] uppercase text-[#1A1A1A]/45">
                     <span className="hidden md:inline">{project.location}</span>
                     <span className="hidden sm:inline">{project.category}</span>
+                    <span className="flex items-center gap-2 text-[#8B4545]">
+                      <span className="text-[10px] md:text-[11px] tracking-[0.2em]">{isOpen ? 'Close' : 'View'}</span>
                     <motion.span
                       animate={{ rotate: isOpen ? 90 : 0 }}
                       transition={{ duration: 0.25 }}
@@ -429,21 +732,23 @@ const RedMountainMagazineStack = () => {
                     >
                       →
                     </motion.span>
+                    </span>
                   </span>
                 </div>
               </button>
 
               {/* Expandable panel: in document flow, pushes content down */}
-              <AnimatePresence initial={false}>
+              <AnimatePresence initial={false} custom={exitInstant}>
                 {isOpen && (
                   <motion.div
-                    ref={panelRef}
                     id={panelId}
+                    data-project-panel
                     key="panel"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.4, ease: [0.4, 0, 0.2, 1] }}
+                    custom={exitInstant}
+                    variants={panelVariants}
+                    initial="closed"
+                    animate="open"
+                    exit="closed"
                     className="overflow-hidden bg-white border-b border-black/10"
                     style={{ position: 'relative', zIndex: 49 }}
                   >
@@ -495,12 +800,12 @@ const RedMountainMagazineStack = () => {
 
                       {project.gallery && (
                         <div className="mt-10 grid grid-cols-3 md:grid-cols-6 gap-2 md:gap-3">
-                          {project.gallery.map(g => (
+                          {project.gallery.map((g, gi) => (
                             <button
                               key={g.src}
                               type="button"
-                              onClick={() => { setLightbox({ src: g.full, alt: g.alt }); track('gallery_open', { image: g.full }); }}
-                              className="block aspect-[2/3] overflow-hidden bg-[#e9e6e1] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8B4545]"
+                              onClick={() => { setLightbox({ images: project.gallery!, index: gi }); track('gallery_open', { image: g.full }); }}
+                              className="block aspect-square overflow-hidden bg-[#e9e6e1] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#8B4545]"
                               aria-label={`View larger: ${g.alt}`}
                             >
                               <img src={g.src} alt={g.alt} loading="lazy" className="w-full h-full object-cover hover:scale-[1.04] transition-transform duration-500" />
@@ -513,32 +818,22 @@ const RedMountainMagazineStack = () => {
                 )}
               </AnimatePresence>
 
-              {/* Full-bleed image, or a side-by-side pair for vertical work */}
-              {project.pair ? (
-                <div className="w-full h-[80vh] md:h-screen grid grid-cols-1 md:grid-cols-2 bg-[#1A1A1A]">
+              {/* Full-bleed hero image */}
+                <button
+                  type="button"
+                  onClick={() => open(project)}
+                  onPointerEnter={e => { if (e.pointerType === 'mouse') preloadProject(project); }}
+                  aria-label={`Open project: ${project.title}`}
+                  className="group/img relative block w-full h-[65vh] md:h-screen cursor-pointer text-left"
+                >
                   <img
                     src={project.src}
-                    alt={`${project.title}, ${project.category.toLowerCase()} photography in ${project.location}: leather chairs at a window framing aspens and peaks`}
+                    alt={project.alt ? `${project.alt}. ${project.title}, ${project.location}` : `${project.title}, ${project.category.toLowerCase()} photography in ${project.location} by Red Mountain Photography`}
                     loading="lazy"
                     className="w-full h-full object-cover"
                   />
-                  <img
-                    src={project.pair}
-                    alt={`${project.title}: curved white oak staircase with a lit handrail`}
-                    loading="lazy"
-                    className="hidden md:block w-full h-full object-cover"
-                  />
-                </div>
-              ) : (
-                <div className="w-full h-[65vh] md:h-screen">
-                  <img
-                    src={project.src}
-                    alt={`${project.title}, ${project.category.toLowerCase()} photography in ${project.location} by Red Mountain Photography`}
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              )}
+                  {!isOpen && <ViewCue />}
+                </button>
 
             </React.Fragment>
           );
@@ -679,27 +974,12 @@ const RedMountainMagazineStack = () => {
       {/* ── Lightbox ── */}
       <AnimatePresence>
         {lightbox && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="fixed inset-0 z-[100] bg-[#111]/95 flex items-center justify-center p-4 md:p-10 cursor-zoom-out"
-            onClick={() => setLightbox(null)}
-            role="dialog"
-            aria-modal="true"
-            aria-label={lightbox.alt}
-          >
-            <img src={lightbox.src} alt={lightbox.alt} className="max-h-full max-w-full object-contain" />
-            <button
-              type="button"
-              className="absolute top-4 right-5 text-[11px] tracking-[0.2em] uppercase text-white/70 hover:text-white"
-              style={sans}
-              onClick={() => setLightbox(null)}
-            >
-              Close
-            </button>
-          </motion.div>
+          <Lightbox
+            images={lightbox.images}
+            index={lightbox.index}
+            onIndex={index => setLightbox(lb => (lb ? { ...lb, index } : lb))}
+            onClose={() => setLightbox(null)}
+          />
         )}
       </AnimatePresence>
 
