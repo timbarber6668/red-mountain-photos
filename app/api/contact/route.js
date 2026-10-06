@@ -37,6 +37,13 @@ export async function POST(request) {
     message: clean(body.message, 5000),
   };
 
+  // Where the visitor came from (set by ad links with UTM tags). Shown to Tim only.
+  const a = body.attribution && typeof body.attribution === 'object' ? body.attribution : {};
+  const source = [a.utm_source, a.utm_medium, a.utm_campaign, a.utm_content]
+    .map((v) => clean(v, 80))
+    .filter(Boolean)
+    .join(' / ') || (a.fbclid ? 'Meta ad (no tags)' : a.gclid ? 'Google ad (no tags)' : '');
+
   if (!fields.name || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email) || !fields.message) {
     return NextResponse.json({ error: 'invalid' }, { status: 422 });
   }
@@ -48,6 +55,7 @@ export async function POST(request) {
     ['Property location', fields.location],
     ['Project type', fields.projectType],
     ['Timing', fields.timing],
+    ['Came from', source],
   ].filter(([, v]) => v);
 
   const text = [...rows.map(([k, v]) => `${k}: ${v}`), '', fields.message].join('\n');

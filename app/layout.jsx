@@ -2,6 +2,7 @@ import './globals.css'
 import SiteHeader from './components/SiteHeader'
 import SiteFooter from './components/SiteFooter'
 import Analytics from './components/Analytics'
+import ClickTracker from './components/ClickTracker'
 
 export const metadata = {
   metadataBase: new URL('https://redmountainphotos.com'),
@@ -29,6 +30,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+  },
+  other: {
+    'facebook-domain-verification': '70o3x1um7t0745uwtnr7cfzm9tljy0',
   },
 }
 
@@ -127,6 +131,7 @@ export default function RootLayout({ children }) {
         {children}
         <SiteFooter />
         <Analytics />
+        <ClickTracker />
       </body>
     </html>
   )

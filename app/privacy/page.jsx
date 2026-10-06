@@ -5,7 +5,7 @@ export const metadata = {
   alternates: { canonical: '/privacy' },
 };
 
-const LAST_UPDATED = 'September 24, 2026';
+const LAST_UPDATED = 'October 6, 2026';
 
 export default function PrivacyPage() {
   const section = (heading, paragraphs) => (
@@ -59,11 +59,11 @@ export default function PrivacyPage() {
 
           {section('Information Collected Automatically', [
             'Our website is hosted on Vercel, which records standard server and security logs including IP addresses and browser information. These logs are used to keep the site running and secure.',
-            'If analytics are enabled on this site, we use them only to understand how the site is used, such as which pages are visited, how people arrive, and which links and questions get clicked. We may use Google Analytics and Microsoft Clarity, which can record anonymized clicks, scrolling and mouse movement to produce heatmaps. Clarity masks text you type into forms. We do not use analytics to build advertising profiles.',
+            'We use analytics to understand how the site is used, such as which pages are visited, how people arrive, and which links and questions get clicked. We may use Google Analytics and Microsoft Clarity, which can record anonymized clicks, scrolling and mouse movement to produce heatmaps. Clarity masks text you type into forms. We also run advertising on Facebook, Instagram and Google. To measure those ads, we use the Meta Pixel and Google advertising tags, which tell those companies when a visitor viewed a page, clicked a phone number or sent an inquiry, so we can see which ads work and show our ads to people who may be interested. We do not send the text of your inquiry message to these companies.',
           ])}
 
           {section('Cookies', [
-            'This site does not use cookies for advertising or cross-site tracking. If analytics are enabled, the analytics provider may set a cookie to distinguish one visit from another. Most browsers let you block or delete cookies in their settings, and this site remains fully usable if you do.',
+            'Analytics and advertising tools on this site may set cookies to tell one visit from another and to measure our ads. You can block or delete cookies in your browser settings, and this site remains fully usable if you do. You can also opt out of personalized ads from Meta at facebook.com/adpreferences and from Google at adssettings.google.com.',
           ])}
 
           {section('Photographs and Client Work', [

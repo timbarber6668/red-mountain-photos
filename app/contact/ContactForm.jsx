@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { track } from '../lib/track';
+import { track, getAttribution } from '../lib/track';
 
 const CONTACT_EMAIL = 'tim@redmountainphotos.com';
 
@@ -33,7 +33,7 @@ export default function ContactForm() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(fields),
+        body: JSON.stringify({ ...fields, attribution: getAttribution() }),
       });
       if (res.ok) {
         track('contact_submit', { project_type: fields.projectType || 'none' });
