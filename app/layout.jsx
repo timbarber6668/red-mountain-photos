@@ -107,7 +107,7 @@ export default function RootLayout({ children }) {
         {
           '@type': 'Service',
           name: 'Drone & Aerial Photography',
-          description: 'FAA-certified drone imaging and aerial photography'
+          description: 'Drone stills and aerial video of homes, land and resort properties'
         },
         {
           '@type': 'Service',

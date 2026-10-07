@@ -79,7 +79,7 @@ const posts = [
       'The builder, the architect and the designer all want the photos of a finished home. Here is how licensing works, and why sorting it out before the shoot saves everyone money.',
     image: '/images/work/catherine-frank/544A5611.jpg',
     imageAlt:
-      'White oak kitchen with stone backsplash and brass fixtures, photographed for an interior designer in Telluride, Colorado',
+      'White oak kitchen with stone backsplash and brass fixtures, photographed for an interior designer in Mountain Village, Colorado',
     readTime: '4 min read',
     body: [
       {
@@ -331,7 +331,7 @@ const posts = [
       {
         heading: 'The practical details',
         paragraphs: [
-          'Drone work in the mountains carries real constraints: wind, weather windows, and airspace rules. Red Mountain Photography flies FAA-certified, which matters both for legal use of the images in commercial marketing and for insurance. We monitor conditions and schedule aerial sessions with backup windows so weather does not stall your listing launch.',
+          'Drone work in the mountains carries real constraints: wind, weather windows, and airspace rules. We monitor conditions and schedule aerial sessions with backup windows so weather does not stall your listing launch.',
           'Aerial stills integrate into the same editing pipeline as our ground photography, so color and tone stay consistent across the entire gallery. The best compliment an aerial can get is that it feels like part of the story rather than a gadget shot.',
         ],
       },
@@ -450,7 +450,7 @@ const posts = [
       {
         heading: 'Aerial coverage',
         paragraphs: [
-          'FAA-certified drone stills and video establish context: acreage, privacy, ski access, and the property’s relationship to the surrounding terrain. For estates and land-forward listings, aerials often carry the marketing. See our guide on when aerial coverage makes sense for a deeper look.',
+          'Drone stills and video establish context: acreage, privacy, ski access, and the property’s relationship to the surrounding terrain. For estates and land-forward listings, aerials often carry the marketing. See our guide on when aerial coverage makes sense for a deeper look.',
         ],
       },
       {

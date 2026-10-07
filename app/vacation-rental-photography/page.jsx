@@ -115,7 +115,7 @@ export default function VacationRentalPage() {
 
       {/* Image strip */}
       <section className="grid grid-cols-1 md:grid-cols-3 gap-1 bg-[#1A1A1A]">
-        <img src="/images/actual/544A4778.jpg" alt="Rooftop hot tub with lounge chairs above forested slopes at a Telluride vacation rental" className="w-full aspect-[4/3] object-cover" />
+        <img src="/images/actual/544A4778.jpg" alt="Rooftop hot tub with lounge chairs above forested slopes at The Arrabelle at Vail Square, Vail" className="w-full aspect-[4/3] object-cover" />
         <img src="/images/actual/544A5498.jpg" alt="Bright living room with fireplace and balcony views at a Mountain Village vacation rental" className="w-full aspect-[4/3] object-cover" />
         <img src="/images/actual/544A2097.jpg" alt="Outdoor fire pit and spa terrace with autumn aspens at a Telluride vacation home" className="w-full aspect-[4/3] object-cover" />
       </section>

@@ -33,7 +33,7 @@ const faqs = [
   {
     id: 'drone',
     q: 'Can you fly a drone at my property?',
-    a: 'Usually. All aerial work is flown by an FAA-certified pilot. Some sites sit in controlled airspace or have local restrictions, and mountain weather can push a flight to another day, so we check your location in advance and plan a backup window.',
+    a: 'Usually. Some sites sit in controlled airspace or have local restrictions, and mountain weather can push a flight to another day, so we check your location in advance and plan a backup window.',
   },
   {
     id: 'licensing',
@@ -100,7 +100,7 @@ const projectList: ProjectItem[] = [
     location: 'Mountain Village, CO',
     services: ['Aerial Drone Photography', 'Cinematic Video'],
     description: 'A full aerial coverage project showcasing a luxury mountain estate nestled in the San Juan range above Telluride. Shot across two golden-hour sessions to capture the interplay of natural light across the home and surrounding landscape.',
-    details: 'FAA-certified drone imaging provided context shots, site overview, and detail passes at multiple altitudes. The results were used across MLS listing materials, broker marketing decks, and the developer\'s portfolio.',
+    details: 'Drone passes provided context shots, site overview, and detail passes at multiple altitudes. The results were used across MLS listing materials, broker marketing decks, and the developer\'s portfolio.',
     deliverables: ['10 aerial stills', '1-min cinematic reel', 'Social media edits'],
     gallery: [
       gg.shot('544A1850', 'Kitchen with green glazed tile, a wood range hood and timber posts'),
@@ -159,7 +159,7 @@ const projectList: ProjectItem[] = [
     title: 'White Oak House',
     category: 'Interior Design',
     year: '2026',
-    location: 'Telluride, CO',
+    location: 'Mountain Village, CO',
     credit: 'Interior design by Catherine Frank',
     services: ['Interior Design Photography', 'Portfolio Imagery'],
     description: 'A portfolio shoot for interior designer Catherine Frank. The house is built from a short list of natural materials: white oak, stone and blackened steel, softened with leather, wool and sheepskin. The brief was to show how those materials carry from room to room, and how the big windows bring the aspens inside.',
@@ -191,9 +191,9 @@ const projectList: ProjectItem[] = [
     title: 'Weathered Stone',
     category: 'Detail Focus',
     year: '2024',
-    location: 'Ouray, CO',
+    location: 'Telluride, CO',
     services: ['Detail Photography', 'Material Documentation'],
-    description: 'A close study of material and craft in a custom stone residence in Ouray. The client, a design-build firm, needed images that communicated the quality and precision of their stonework and millwork to prospective clients and design press.',
+    description: 'A close study of material and craft in a custom stone residence in Telluride. The client, a design-build firm, needed images that communicated the quality and precision of their stonework and millwork to prospective clients and design press.',
     details: 'Shot with macro and tilt-shift lenses to isolate material character without distortion. The resulting detail library is used across the firm\'s portfolio, pitch decks, and award submissions.',
     deliverables: ['60 detail stills', 'Material library', 'Print-ready masters'],
     gallery: [

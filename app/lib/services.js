@@ -25,7 +25,7 @@ const services = [
     href: '/vacation-rental-photography',
     image: '/images/actual/544A4778.jpg',
     imageAlt:
-      'Steaming rooftop hot tub with lounge chairs overlooking forested mountain slopes, hospitality photography in Colorado',
+      'Steaming rooftop hot tub with lounge chairs overlooking the slopes at The Arrabelle at Vail Square, hospitality photography in Colorado',
     short: 'Hotels, lodges and luxury vacation rentals, shot for Airbnb, Vrbo and direct booking sites.',
     long: 'Photography and video for hotels, lodges and luxury vacation rentals. Every bedroom, bath and amenity, a cover image planned to stand out in search, and files sized and ordered for Airbnb, Vrbo and direct booking sites.',
   },
@@ -34,9 +34,9 @@ const services = [
     title: 'Drone & Aerial',
     image: '/images/actual/DJI_0943.jpg',
     imageAlt:
-      'Top-down aerial drone view of a modern mountain residence with rooftop hot tub and courtyard, FAA-certified drone photography',
-    short: 'FAA-certified aerials that show the setting, the acreage and the view.',
-    long: 'FAA-certified drone stills and video for estates, land and resort properties. Aerials show what ground photos cannot: the acreage, the access, and where the home sits in the landscape.',
+      'Top-down aerial drone view of a modern mountain residence with rooftop hot tub and courtyard, drone photography in Colorado',
+    short: 'Aerials that show the setting, the acreage and the view.',
+    long: 'Drone stills and video for estates, land and resort properties. Aerials show what ground photos cannot: the acreage, the access, and where the home sits in the landscape.',
   },
 ];
 

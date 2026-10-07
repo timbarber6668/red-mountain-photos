@@ -46,7 +46,7 @@ const craft = [
   'Bracketed exposures utilizing natural light mixed with flash frames, blended by hand, so windows hold the view and rooms keep their true color.',
   'Lighting set room by room on site, and every vertical straightened in the edit.',
   'Every frame edited by me. No outsourced or automated batch editing.',
-  'FAA-certified drone pilot for aerial stills and video.',
+  'Drone stills and aerial video.',
   'Photo and video on the same visit, with the video cut and graded by me as well.',
   'One point of contact, from the first call to the final files.',
 ];
