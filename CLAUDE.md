@@ -89,6 +89,10 @@ Fixed: og:image was a PORTRAIT photo declared as 1200x630 and would have cropped
 
 Schema upgraded from LocalBusiness to ProfessionalService with hasOfferCatalog, founder, and areaServed including Country: United States (see travel positioning below).
 
+## Design skills (Oct 21)
+- `.claude/skills/taste-skill/` is tasteskill v2 (MIT, vendored from Leonxlnx/taste-skill). It loads automatically for page design, redesign and polish work. Its scripts need Node 22+ and Chrome; working files go to `.taste-skill/` (gitignored).
+- Tim's rules in this file win over the skill: palette, fonts, no em dashes, centered spine, travel positioning.
+
 ## Contact Info (confirmed by Tim, July 2026)
 - Phone: (970) 670-0846 : contact page, footer, schema (`tel:+19706700846`)
 - Email: tim@redmountainphotos.com : form mailto, footer, contact page, schema
