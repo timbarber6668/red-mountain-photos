@@ -13,3 +13,6 @@ dependencies {
 }
 
 application { mainClass.set("com.redmountain.shotflow.probe.ProbeKt") }
+
+// Flows wait for Enter ("turn the flash ON, then press Enter"), so pass the keyboard through.
+tasks.named<JavaExec>("run") { standardInput = System.`in` }

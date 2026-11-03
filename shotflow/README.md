@@ -120,6 +120,8 @@ Until one of these is proven, `ManualFlashController` pauses the flow and asks y
 
 ## 5. Spikes, in order
 
+Step-by-step home testing (camera and laptop on the same Wi-Fi): see [TESTING.md](TESTING.md).
+
 1. **Probe the camera** (1 evening). Join a laptop to the same Wi-Fi as the camera, enable
    CCAPI on the camera, then:
    ```
