@@ -6,14 +6,21 @@ your home Wi-Fi; the travel router does the same job on location.
 ## 1. One-time camera setup
 
 1. Register (free) on Canon's developer site for your region and request **CCAPI**
-   (Camera Control API). Depending on body and firmware, Canon has you run a one-time
-   activation over the network; follow their instructions for your model.
-2. Set the camera's dial to **M**, drive to **single shot**, lens in **MF** (or AF; the tool
+   (Camera Control API). Registering alone does not turn it on.
+2. **Activate it (once, by USB).** Download Canon's CCAPI activation tool from the developer
+   site. Quit EOS Utility, plug the camera into the computer with a USB data cable (not a
+   charge-only cable), run the tool, then unplug. Until this is done, the camera's network menu
+   only offers smartphone, EOS Utility, FTP, web service and wireless remote. **Remote control
+   (EOS Utility) is not the same thing.**
+3. Set the camera's dial to **M**, drive to **single shot**, lens in **MF** (or AF; the tool
    never asks it to focus). Set auto power off to **Disable** while testing, since the camera
    drops Wi-Fi when it sleeps.
-3. In the camera's network menu, set up a **Camera Control API (CCAPI)** connection that joins
-   your home Wi-Fi (infrastructure mode, not the camera's own access point). Once connected,
-   the camera shows its **IP address**, e.g. `192.168.1.40`. Write it down.
+4. After activation, **Camera Control API** appears under Wireless communication settings >
+   Wi-Fi settings. Set it up to join your home Wi-Fi (infrastructure mode, not the camera's own access point). Once connected,
+   the camera shows a URL with its **IP address**, e.g. `http://192.168.1.40:8080/ccapi`.
+   Write it down. Turn on **Auto connect** in the same menu so it rejoins at power-up.
+   (Canon's activation tool and menus change with firmware; if yours differ, follow Canon's
+   CCAPI instructions for the R5.)
 
 ## 2. Check the connection (nothing to install)
 
