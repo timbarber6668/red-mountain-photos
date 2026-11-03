@@ -207,3 +207,6 @@ The expand system went through multiple iterations. Key learnings:
 6. Place photos in `public/images/actual/`
 7. Place `logo.png` (transparent PNG) in `public/images/`
 8. Place `Tim.avif` in `public/images/`
+
+## ShotFlow (Nov 3, branch `claude/canon-camera-control-app-xch1yn`)
+`shotflow/` is a separate Kotlin/Gradle project (Canon R remote control app), not part of the Next.js site. See `shotflow/README.md`. Build with `cd shotflow && ./gradlew build`. It should move to its own repo before the Android app grows.
