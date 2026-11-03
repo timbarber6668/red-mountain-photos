@@ -91,7 +91,13 @@ puts the shutter speed back and turns the flash off.
 
 **Phone UI plan (Compose):** full-screen live view with a gesture-driven setting strip
 (Tv / Av / ISO / WB / EC), a flow launcher, an overlay picker, and a monitor toggle row.
-Overlays draw as a Canvas layer over the frame. Histogram and peaking run on a downscaled
+
+**Overlays and filters work on the camera's live view feed, in the app.** Each live view
+frame from the camera is decoded on the phone. The view filters (mono, high contrast,
+notan, zebras, peaking) process that frame, then the chosen overlay layers are drawn on
+top in a Canvas, locked to the picture's rectangle (`ImageRect.fit`), so a thirds line stays
+on the same part of the scene in any phone orientation. The camera's own screen and EVF
+show their normal view: the camera API can't draw onto them. Histogram and peaking run on a downscaled
 copy of each frame on a background thread. If CPU cost shows up, peaking moves to an AGSL
 shader (Android 13+).
 
@@ -130,7 +136,7 @@ Until one of these is proven, `ManualFlashController` pauses the flow and asks y
 
 ```
 cd shotflow
-./gradlew build          # compiles core and probe, runs the 16 core tests
+./gradlew build          # compiles core and probe, runs the 17 core tests
 ```
 
 Requires a JDK (17+). The Android app module will also need the Android SDK.

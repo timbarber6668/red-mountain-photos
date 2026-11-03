@@ -161,3 +161,25 @@ object Overlays {
         return listOf(line(0.5 - dx, 0.5 - dy, 0.5 + dx, 0.5 + dy))
     }
 }
+
+/**
+ * Where the live view picture actually sits on the phone screen. The camera's frame (3:2 on
+ * most R bodies) is fitted inside the view with bars on the sides or top, and overlays must be
+ * drawn in that rectangle, not across the whole view, or the thirds lines won't match the image.
+ */
+data class ImageRect(val left: Float, val top: Float, val width: Float, val height: Float) {
+    fun map(p: Pt): Pair<Float, Float> = (left + (p.x * width).toFloat()) to (top + (p.y * height).toFloat())
+
+    companion object {
+        fun fit(viewWidth: Float, viewHeight: Float, frameAspect: Double): ImageRect {
+            val viewAspect = viewWidth / viewHeight
+            return if (viewAspect > frameAspect) {
+                val w = (viewHeight * frameAspect).toFloat()
+                ImageRect((viewWidth - w) / 2, 0f, w, viewHeight)
+            } else {
+                val h = (viewWidth / frameAspect).toFloat()
+                ImageRect(0f, (viewHeight - h) / 2, viewWidth, h)
+            }
+        }
+    }
+}

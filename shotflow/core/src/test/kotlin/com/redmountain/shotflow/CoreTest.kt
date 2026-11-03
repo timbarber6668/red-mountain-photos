@@ -17,7 +17,9 @@ import com.redmountain.shotflow.monitor.Filters
 import com.redmountain.shotflow.monitor.FocusPeaking
 import com.redmountain.shotflow.monitor.Frame
 import com.redmountain.shotflow.monitor.Histogram
+import com.redmountain.shotflow.overlay.ImageRect
 import com.redmountain.shotflow.overlay.OverlayKind
+import com.redmountain.shotflow.overlay.Pt
 import com.redmountain.shotflow.overlay.OverlaySpec
 import com.redmountain.shotflow.overlay.Overlays
 import kotlinx.coroutines.test.runTest
@@ -213,5 +215,12 @@ class OverlayTest {
         // thirds drawn inside that crop: first vertical line one third into the crop box
         val thirds = Overlays.build(OverlaySpec(OverlayKind.THIRDS, insideCrop = 0.8), 1.5)
         assertEquals(box[0].x + (0.8 / 1.5) / 3, thirds[0].points[0].x, 1e-9)
+    }
+
+    @Test fun overlaysLockToTheLiveViewPictureNotTheScreen() {
+        // 3:2 live view on a 2400x1080 landscape phone: picture is 1620 wide, centred
+        val r = ImageRect.fit(2400f, 1080f, 1.5)
+        assertEquals(ImageRect(390f, 0f, 1620f, 1080f), r)
+        assertEquals(390f + 540f to 360f, r.map(Pt(1.0 / 3, 1.0 / 3)))
     }
 }
